@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 
-class DashboardPage extends StatelessWidget {
-  const DashboardPage({
-    super.key,
-  });
+class CountryPage extends StatelessWidget {
+  const CountryPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -26,81 +24,55 @@ class DashboardPage extends StatelessWidget {
       );
     }
 
-    final List<Map> customers = [
-      {
-        'Name': 'Vineetha',
-        '#': '1',
-        'Email': 'vineetha44@gmail.com',
-        'Mobile': '7845169545',
-        'Image': 'No image Uploaded',
-        'Action': ''
-      },
-      {
-        'Name': 'Ramesh',
-        '#': '2',
-        'Email': 'ramesh89@gmail.com',
-        'Mobile': '9876543210',
-        'Image': 'No image Uploaded',
-        'Action': ''
-      },
-      {
-        'Name': 'Priya',
-        '#': '3',
-        'Email': 'priya77@gmail.com',
-        'Mobile': '8123456789',
-        'Image': 'No image Uploaded',
-        'Action': ''
-      },
-      {
-        'Name': 'Arjun',
-        '#': '4',
-        'Email': 'arjun123@gmail.com',
-        'Mobile': '9001234567',
-        'Image': 'No image Uploaded',
-        'Action': ''
-      },
-      {
-        'Name': 'Meera',
-        '#': '5',
-        'Email': 'meera22@gmail.com',
-        'Mobile': '9870123456',
-        'Image': 'No image Uploaded',
-        'Action': ''
-      },
-      {
-        'Name': 'Rajesh',
-        '#': '6',
-        'Email': 'rajesh_kumar@gmail.com',
-        'Mobile': '8098765432',
-        'Image': 'No image Uploaded',
-        'Action': ''
-      },
-      {
-        'Name': 'Sneha',
-        '#': '7',
-        'Email': 'sneha88@gmail.com',
-        'Mobile': '7012345678',
-        'Image': 'No image Uploaded',
-        'Action': ''
-      },
-      {
-        'Name': 'Kiran',
-        '#': '8',
-        'Email': 'kiran45@gmail.com',
-        'Mobile': '7894561230',
-        'Image': 'No image Uploaded',
-        'Action': ''
-      }
+    final List<Map> country = [
+      {'CountryName': 'Ireland', '#': '1', 'Status': '', 'Action': ''},
+      {'CountryName': 'India', '#': '2', 'Status': '', 'Action': ''},
     ];
+
+    // Use MediaQuery to get screen width and height
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
+
+    // Determine screen type based on width
+    bool isMobile = screenWidth < 600;
+    bool isTablet = screenWidth >= 600 && screenWidth <= 1024;
+    bool isDesktop = screenWidth > 1024;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          "Customers",
-          style: TextStyle(
-              color: Colors.grey.shade800,
-              fontWeight: FontWeight.w500,
-              fontSize: 22),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              "Countries",
+              style: TextStyle(
+                  color: Colors.grey.shade800,
+                  fontWeight: FontWeight.w500,
+                  fontSize: 22),
+            ),
+            Container(
+              padding: EdgeInsets.only(left: 8),
+              height: 40,
+              width: isMobile ? 120 : 140,
+              child: Center(
+                child: Row(
+                  children: [
+                    Icon(
+                      Icons.add,
+                      color: Colors.white,
+                    ),
+                    Text(
+                      "Add Country",
+                      style: TextStyle(
+                          color: Colors.white, fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
+              ),
+              decoration: BoxDecoration(
+                  color: Colors.green, borderRadius: BorderRadius.circular(20)),
+            )
+          ],
         ),
         SizedBox(
           height: 15,
@@ -121,7 +93,7 @@ class DashboardPage extends StatelessWidget {
               )),
               DataColumn(
                   label: Text(
-                'Name',
+                'CountryName',
                 style: TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.w900,
@@ -129,23 +101,7 @@ class DashboardPage extends StatelessWidget {
               )),
               DataColumn(
                   label: Text(
-                'Email',
-                style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.w900,
-                    fontSize: 16),
-              )),
-              DataColumn(
-                  label: Text(
-                'Mobile',
-                style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.w900,
-                    fontSize: 16),
-              )),
-              DataColumn(
-                  label: Text(
-                'Image',
+                'Status',
                 style: TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.w900,
@@ -161,46 +117,44 @@ class DashboardPage extends StatelessWidget {
               )),
             ],
             rows: List.generate(
-              customers.length,
+              country.length,
               (index) {
-                final customer = customers[index];
+                final countries = country[index];
                 return DataRow(
                   cells: [
                     DataCell(Text(
-                      customer['#']!,
+                      countries['#']!,
                       style: TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.w600,
                           fontSize: 14),
                     )),
                     DataCell(Text(
-                      customer['Name']!,
+                      countries['CountryName']!,
                       style: TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.w600,
                           fontSize: 14),
                     )),
-                    DataCell(Text(
-                      customer['Email']!,
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.w600,
-                          fontSize: 14),
-                    )),
-                    DataCell(Text(
-                      customer['Mobile']!,
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.w600,
-                          fontSize: 14),
-                    )),
-                    DataCell(Text(
-                      customer['Image']!,
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.w600,
-                          fontSize: 14),
-                    )),
+                    DataCell(
+                      Container(
+                        height: 20,
+                        width: isDesktop ? 80 : 110,
+                        padding: EdgeInsets.only(left: isDesktop ? 5 : 0),
+                        child: Center(
+                            child: Text(
+                          'Active',
+                          style: TextStyle(
+                              color: Colors.green.shade700,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 12),
+                        )),
+                        decoration: BoxDecoration(
+                            color: Colors.green.shade200,
+                            border: Border.all(color: Colors.green.shade700),
+                            borderRadius: BorderRadius.circular(8)),
+                      ),
+                    ),
                     DataCell(PopupMenuButton<int>(
                       child: Icon(
                         Icons.more_vert,
@@ -208,12 +162,35 @@ class DashboardPage extends StatelessWidget {
                       ),
                       onSelected: (value) {
                         if (value == 1) {
-                          //delete customer
+                          //edit
+                        } else if (value == 2) {
+                          //delete
                         }
                       }, //dropdown selection press
                       itemBuilder: (context) => [
                         PopupMenuItem(
                           value: 1,
+                          child: Row(
+                            children: [
+                              Icon(
+                                Icons.edit,
+                                size: 18,
+                                color: Colors.black,
+                              ),
+                              SizedBox(
+                                width: 5,
+                              ),
+                              Text(
+                                "Edit",
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.normal),
+                              ),
+                            ],
+                          ),
+                        ),
+                        PopupMenuItem(
+                          value: 2,
                           child: Row(
                             children: [
                               Icon(
@@ -225,7 +202,7 @@ class DashboardPage extends StatelessWidget {
                                 width: 5,
                               ),
                               Text(
-                                "Block",
+                                "Delete",
                                 style: TextStyle(
                                     color: Colors.black,
                                     fontWeight: FontWeight.normal),
