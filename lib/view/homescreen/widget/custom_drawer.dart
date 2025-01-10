@@ -25,7 +25,9 @@ class CustomDrawer extends StatefulWidget {
       this.onSiteFeedbackTap,
       this.onEnquiryTap,
       this.onSubscriptionTap,
-      this.onPoster4Tap});
+      this.onPoster4Tap,
+      this.onRegistredcustomerTap,
+      this.onBackupdataTap});
   final void Function()? onDashboardTap;
   final void Function()? onProductsTap;
   final void Function()? onCountryTap;
@@ -49,6 +51,8 @@ class CustomDrawer extends StatefulWidget {
   final void Function()? onSiteFeedbackTap;
   final void Function()? onEnquiryTap;
   final void Function()? onSubscriptionTap;
+  final void Function()? onRegistredcustomerTap;
+  final void Function()? onBackupdataTap;
 
   @override
   State<CustomDrawer> createState() => _CustomDrawerState();
@@ -531,6 +535,62 @@ class _CustomDrawerState extends State<CustomDrawer> {
                       ),
                       Text(
                         "Subscription",
+                        style: TextStyle(
+                            color: Colors.grey,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 14),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              //registerdcustomers
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 15),
+                child: GestureDetector(
+                  onTap: widget.onRegistredcustomerTap,
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.person,
+                        color: Colors.grey.shade700,
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Text(
+                        "Registered Customers",
+                        style: TextStyle(
+                            color: Colors.grey,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 14),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              //backup
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 15),
+                child: GestureDetector(
+                  onTap: widget.onBackupdataTap,
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.person,
+                        color: Colors.grey.shade700,
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Text(
+                        "Backup Data & media",
                         style: TextStyle(
                             color: Colors.grey,
                             fontWeight: FontWeight.bold,

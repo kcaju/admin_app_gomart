@@ -1,16 +1,16 @@
 import 'package:admin_app_gomart/view/widget/customtextformfield.dart';
 import 'package:flutter/material.dart';
 
-class AddBrandPage extends StatefulWidget {
-  const AddBrandPage({super.key});
+class AddCategoryPage extends StatefulWidget {
+  const AddCategoryPage({super.key});
 
   @override
-  State<AddBrandPage> createState() => _AddBrandPageState();
+  State<AddCategoryPage> createState() => _AddCategoryPageState();
 }
 
-class _AddBrandPageState extends State<AddBrandPage> {
+class _AddCategoryPageState extends State<AddCategoryPage> {
   String _selectedStatus = "Active";
-  TextEditingController brandName = TextEditingController();
+  TextEditingController categoryName = TextEditingController();
   final formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,7 @@ class _AddBrandPageState extends State<AddBrandPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "Add Brand",
+              "Add Category",
               style: TextStyle(
                   color: Colors.grey.shade600,
                   fontWeight: FontWeight.bold,
@@ -31,7 +31,7 @@ class _AddBrandPageState extends State<AddBrandPage> {
               height: 15,
             ),
             Text(
-              "Brand Name",
+              "Category Name",
               style: TextStyle(
                   color: Colors.grey.shade600,
                   fontWeight: FontWeight.w600,
@@ -39,13 +39,13 @@ class _AddBrandPageState extends State<AddBrandPage> {
             ),
             SizedBox(
                 width: 450,
-                child:
-                    Customtextformfield(hintText: "", controller: brandName)),
+                child: Customtextformfield(
+                    hintText: "", controller: categoryName)),
             SizedBox(
               height: 10,
             ),
             Text(
-              "Brand Logo",
+              "Category Image",
               style: TextStyle(
                   color: Colors.grey.shade600,
                   fontWeight: FontWeight.w600,
@@ -83,7 +83,7 @@ class _AddBrandPageState extends State<AddBrandPage> {
               height: 10,
             ),
             Text(
-              "Brand Status",
+              "Category Status",
               style: TextStyle(
                   color: Colors.grey.shade600,
                   fontWeight: FontWeight.w600,
@@ -133,10 +133,10 @@ class _AddBrandPageState extends State<AddBrandPage> {
             GestureDetector(
               onTap: () {
                 if (formKey.currentState!.validate()) {
-                  brandName.clear();
+                  categoryName.clear();
                   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                       content: Text(
-                    "Brand Added Successfully !!!",
+                    "Category Added Successfully !!!",
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 35,
@@ -149,7 +149,7 @@ class _AddBrandPageState extends State<AddBrandPage> {
                 width: 200,
                 child: Center(
                   child: Text(
-                    "CREATE BRAND",
+                    "CREATE CATEGORY",
                     style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
