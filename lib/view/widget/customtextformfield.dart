@@ -5,9 +5,11 @@ class Customtextformfield extends StatelessWidget {
       {super.key,
       required this.hintText,
       this.isPassword = false,
-      required this.controller});
+      required this.controller,
+      this.isDescription = false});
   final String hintText;
   final bool isPassword;
+  final bool isDescription;
   final TextEditingController controller;
 
   @override
@@ -17,6 +19,7 @@ class Customtextformfield extends StatelessWidget {
           borderRadius: BorderRadius.circular(5),
           border: Border.all(color: Colors.grey.shade200)),
       child: TextFormField(
+        maxLines: isDescription ? 2 : 1,
         validator: isPassword
             ? (value) {
                 if (value != null && value.length >= 8) {

@@ -1,97 +1,102 @@
 import 'package:flutter/material.dart';
 
-class ProductsScreen extends StatelessWidget {
+class ProductsScreen extends StatefulWidget {
   const ProductsScreen({super.key, this.onAddProductTap});
   final void Function()? onAddProductTap;
 
   @override
+  State<ProductsScreen> createState() => _ProductsScreenState();
+}
+
+class _ProductsScreenState extends State<ProductsScreen> {
+  TextEditingController search = TextEditingController();
+
+  int? dropvalue;
+  final ScrollController _scrollController = ScrollController();
+  void scrollRight() {
+    _scrollController.animateTo(
+      _scrollController.offset + 320, // Scroll by 320px (card width + spacing)
+      duration: Duration(milliseconds: 300),
+      curve: Curves.easeInOut,
+    );
+  }
+
+  void scrollLeft() {
+    _scrollController.animateTo(
+      _scrollController.offset - 320, // Scroll by 320px (card width + spacing)
+      duration: Duration(milliseconds: 300),
+      curve: Curves.easeInOut,
+    );
+  }
+
+  final List<Map> brands = [
+    {
+      'code': 'GM/PD0014',
+      '#': '1',
+      'name': 'Sambar Mix',
+      'price': '5.0',
+      'total': '6.15',
+      'brand': 'Jacme',
+      'category': 'Frozen Foods',
+      'created': '2024-07-03',
+      'updated': '2024-07-03',
+      'opening': '5',
+      'current': '5',
+      'Status': '',
+      'Action': '',
+      'image': 'assets/images/eastern.png'
+    },
+    {
+      'code': 'GM/PD0014',
+      '#': '2',
+      'name': 'Masala Tea Mix',
+      'price': '3.5',
+      'total': '4.3',
+      'brand': 'GMC',
+      'category': 'Beverages',
+      'created': '2024-06-15',
+      'updated': '2024-06-20',
+      'opening': '10',
+      'current': '8',
+      'Status': '',
+      'Action': '',
+      'image': 'assets/images/eastern.png'
+    },
+    {
+      'code': 'GM/PD0014',
+      '#': '3',
+      'name': 'Rasam Powder',
+      'price': '4.2',
+      'total': '5.25',
+      'brand': 'AMX',
+      'category': 'Spices',
+      'created': '2024-05-10',
+      'updated': '2024-05-15',
+      'opening': '7',
+      'current': '6',
+      'Status': '',
+      'Action': '',
+      'image': 'assets/images/eastern.png'
+    },
+    {
+      'code': 'GM/PD0014',
+      '#': '4',
+      'name': 'Garam Masala',
+      'price': '6.0',
+      'total': '7.8',
+      'brand': 'EverSp',
+      'category': 'Spices',
+      'created': '2024-03-20',
+      'updated': '2024-03-25',
+      'opening': '12',
+      'current': '9',
+      'Status': '',
+      'Action': '',
+      'image': 'assets/images/eastern.png'
+    }
+  ];
+  @override
   Widget build(BuildContext context) {
-    final ScrollController _scrollController = ScrollController();
-    void scrollRight() {
-      _scrollController.animateTo(
-        _scrollController.offset +
-            320, // Scroll by 320px (card width + spacing)
-        duration: Duration(milliseconds: 300),
-        curve: Curves.easeInOut,
-      );
-    }
-
-    void scrollLeft() {
-      _scrollController.animateTo(
-        _scrollController.offset -
-            320, // Scroll by 320px (card width + spacing)
-        duration: Duration(milliseconds: 300),
-        curve: Curves.easeInOut,
-      );
-    }
-
-    final List<Map> brands = [
-      {
-        'code': 'GM/PD0014',
-        '#': '1',
-        'name': 'Sambar Mix',
-        'price': '5.0',
-        'total': '6.15',
-        'brand': 'Jacme',
-        'category': 'Frozen Foods',
-        'created': '2024-07-03',
-        'updated': '2024-07-03',
-        'opening': '5',
-        'current': '5',
-        'Status': '',
-        'Action': '',
-        'image': 'assets/images/eastern.png'
-      },
-      {
-        'code': 'GM/PD0014',
-        '#': '2',
-        'name': 'Masala Tea Mix',
-        'price': '3.5',
-        'total': '4.3',
-        'brand': 'GMC',
-        'category': 'Beverages',
-        'created': '2024-06-15',
-        'updated': '2024-06-20',
-        'opening': '10',
-        'current': '8',
-        'Status': '',
-        'Action': '',
-        'image': 'assets/images/eastern.png'
-      },
-      {
-        'code': 'GM/PD0014',
-        '#': '3',
-        'name': 'Rasam Powder',
-        'price': '4.2',
-        'total': '5.25',
-        'brand': 'AMX',
-        'category': 'Spices',
-        'created': '2024-05-10',
-        'updated': '2024-05-15',
-        'opening': '7',
-        'current': '6',
-        'Status': '',
-        'Action': '',
-        'image': 'assets/images/eastern.png'
-      },
-      {
-        'code': 'GM/PD0014',
-        '#': '4',
-        'name': 'Garam Masala',
-        'price': '6.0',
-        'total': '7.8',
-        'brand': 'EverSp',
-        'category': 'Spices',
-        'created': '2024-03-20',
-        'updated': '2024-03-25',
-        'opening': '12',
-        'current': '9',
-        'Status': '',
-        'Action': '',
-        'image': 'assets/images/eastern.png'
-      }
-    ];
-
     // Use MediaQuery to get screen width and height
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
@@ -115,7 +120,7 @@ class ProductsScreen extends StatelessWidget {
             ),
             //button
             GestureDetector(
-              onTap: onAddProductTap,
+              onTap: widget.onAddProductTap,
               child: Container(
                 padding: EdgeInsets.only(left: 8),
                 height: 40,
@@ -142,6 +147,62 @@ class ProductsScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(20)),
               ),
             )
+          ],
+        ),
+        //show entries
+        SizedBox(
+          height: 20,
+        ),
+        Row(
+          children: [
+            // "Show Entries" Dropdown
+            Text(
+              'Show ',
+              style: TextStyle(fontSize: 16),
+            ),
+            DropdownButton<int>(
+              value: dropvalue,
+              items: <int>[5, 10, 15].map((int value) {
+                return DropdownMenuItem<int>(
+                  value: value,
+                  child: Text(value.toString()),
+                );
+              }).toList(),
+              onChanged: (value) {
+                // Handle dropdown value change
+                setState(() {
+                  dropvalue = value;
+                });
+              },
+            ),
+            Text(
+              ' entries',
+              style: TextStyle(fontSize: 16),
+            ),
+          ],
+        ),
+        //searchfield
+        Row(
+          children: [
+            Text(
+              'Search: ',
+              style: TextStyle(fontSize: 16),
+            ),
+            SizedBox(
+              width: 200,
+              height: 40,
+              child: TextFormField(
+                controller: search,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  contentPadding:
+                      EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                ),
+                onChanged: (text) {
+                  // Handle search input change
+                },
+              ),
+            ),
           ],
         ),
         SizedBox(

@@ -1,12 +1,17 @@
 import 'package:admin_app_gomart/view/changepassword_screen/changepassword_screen.dart';
 import 'package:admin_app_gomart/view/homescreen/widget/add_brand_page.dart';
 import 'package:admin_app_gomart/view/homescreen/widget/add_category_page.dart';
+import 'package:admin_app_gomart/view/homescreen/widget/add_product_page.dart';
 import 'package:admin_app_gomart/view/homescreen/widget/brands_page.dart';
+import 'package:admin_app_gomart/view/homescreen/widget/cancelledorder_page.dart';
 import 'package:admin_app_gomart/view/homescreen/widget/category_screen.dart';
+import 'package:admin_app_gomart/view/homescreen/widget/completedorders_page.dart';
 import 'package:admin_app_gomart/view/homescreen/widget/country_page.dart';
 import 'package:admin_app_gomart/view/homescreen/widget/custom_drawer.dart';
 import 'package:admin_app_gomart/view/homescreen/widget/dashboard_page.dart';
 import 'package:admin_app_gomart/view/homescreen/widget/header_box.dart';
+import 'package:admin_app_gomart/view/homescreen/widget/partner_details_page.dart';
+import 'package:admin_app_gomart/view/homescreen/widget/pendingorders_page.dart';
 import 'package:admin_app_gomart/view/homescreen/widget/products_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -45,6 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
   bool isRegisteredCustomer = false;
   bool isBackupdata = false;
   bool isaddCategory = false;
+  bool isaddProduct = false;
 
   //dropdown flags
   bool isChangePassword = false;
@@ -101,6 +107,7 @@ class _HomeScreenState extends State<HomeScreen> {
             isProductfeedback = false;
             isSitefeedback = false;
             isEnquiry = false;
+            isaddProduct = false;
             isaddBrand = false;
             isRegisteredCustomer = false;
             isBackupdata = false;
@@ -118,6 +125,7 @@ class _HomeScreenState extends State<HomeScreen> {
             isCountry = false;
             isBrands = false;
             isCategory = false;
+            isaddProduct = false;
             isProducts = true;
             isPendingorders = false;
             isCancelledorders = false;
@@ -153,6 +161,7 @@ class _HomeScreenState extends State<HomeScreen> {
             isaddBrand = false;
             isBrands = false;
             isCategory = false;
+            isaddProduct = false;
             isProducts = false;
             isPendingorders = false;
             isCancelledorders = false;
@@ -191,6 +200,7 @@ class _HomeScreenState extends State<HomeScreen> {
             isaddBrand = false;
             isPendingorders = false;
             isaddCategory = false;
+            isaddProduct = false;
             isCancelledorders = false;
             isOutforDelivery = false;
             isCompletedOrders = false;
@@ -223,6 +233,7 @@ class _HomeScreenState extends State<HomeScreen> {
             isBrands = false;
             isCategory = true;
             isaddCategory = false;
+            isaddProduct = false;
             isProducts = false;
             isPendingorders = false;
             isaddBrand = false;
@@ -259,6 +270,7 @@ class _HomeScreenState extends State<HomeScreen> {
             isCategory = false;
             isProducts = false;
             isaddBrand = false;
+            isaddProduct = false;
             isPendingorders = false;
             isCancelledorders = true;
             isOutforDelivery = false;
@@ -297,6 +309,7 @@ class _HomeScreenState extends State<HomeScreen> {
             isPendingorders = false;
             isCancelledorders = false;
             isOutforDelivery = false;
+            isaddProduct = false;
             isCompletedOrders = true;
             isDetails = false;
             isLogInfo = false;
@@ -341,6 +354,7 @@ class _HomeScreenState extends State<HomeScreen> {
             isDeals = true;
             isPoster1 = false;
             isPoster2 = false;
+            isaddProduct = false;
             isPoster3 = false;
             isPoster4 = false;
             isPoster5 = false;
@@ -378,6 +392,7 @@ class _HomeScreenState extends State<HomeScreen> {
             isPoster2 = false;
             isPoster3 = false;
             isPoster4 = false;
+            isaddProduct = false;
             isPoster5 = false;
             isPoster6 = false;
             isPoster7 = false;
@@ -404,6 +419,7 @@ class _HomeScreenState extends State<HomeScreen> {
             isRegisteredCustomer = false;
             isBackupdata = false;
             isCancelledorders = false;
+            isaddProduct = false;
             isOutforDelivery = false;
             isCompletedOrders = false;
             isDetails = false;
@@ -434,6 +450,7 @@ class _HomeScreenState extends State<HomeScreen> {
             isBackupdata = false;
             isBrands = false;
             isaddBrand = false;
+            isaddProduct = false;
             isCategory = false;
             isProducts = false;
             isPendingorders = false;
@@ -466,6 +483,7 @@ class _HomeScreenState extends State<HomeScreen> {
             isDashbord = false;
             isCountry = false;
             isBrands = false;
+            isaddProduct = false;
             isCategory = false;
             isProducts = false;
             isPendingorders = false;
@@ -499,6 +517,7 @@ class _HomeScreenState extends State<HomeScreen> {
         onPendingorderTap: () {
           setState(() {
             isDashbord = false;
+            isaddProduct = false;
             isCountry = false;
             isBrands = false;
             isCategory = false;
@@ -536,6 +555,7 @@ class _HomeScreenState extends State<HomeScreen> {
             isDashbord = false;
             isCountry = false;
             isaddBrand = false;
+            isaddProduct = false;
             isBrands = false;
             isCategory = false;
             isRegisteredCustomer = false;
@@ -573,6 +593,7 @@ class _HomeScreenState extends State<HomeScreen> {
             isRegisteredCustomer = false;
             isBackupdata = false;
             isBrands = false;
+            isaddProduct = false;
             isCategory = false;
             isProducts = false;
             isPendingorders = false;
@@ -610,6 +631,7 @@ class _HomeScreenState extends State<HomeScreen> {
             isRegisteredCustomer = false;
             isBackupdata = false;
             isProducts = false;
+            isaddProduct = false;
             isPendingorders = false;
             isCancelledorders = false;
             isOutforDelivery = false;
@@ -646,6 +668,7 @@ class _HomeScreenState extends State<HomeScreen> {
             isPendingorders = false;
             isCancelledorders = false;
             isRegisteredCustomer = false;
+            isaddProduct = false;
             isBackupdata = false;
             isOutforDelivery = false;
             isCompletedOrders = false;
@@ -696,6 +719,7 @@ class _HomeScreenState extends State<HomeScreen> {
             isPoster5 = true;
             isPoster6 = false;
             isPoster7 = false;
+            isaddProduct = false;
             isProductfeedback = false;
             isSitefeedback = false;
             isEnquiry = false;
@@ -716,6 +740,7 @@ class _HomeScreenState extends State<HomeScreen> {
             isCategory = false;
             isProducts = false;
             isPendingorders = false;
+            isaddProduct = false;
             isCancelledorders = false;
             isOutforDelivery = false;
             isCompletedOrders = false;
@@ -751,6 +776,7 @@ class _HomeScreenState extends State<HomeScreen> {
             isRegisteredCustomer = false;
             isaddCategory = false;
             isBackupdata = false;
+            isaddProduct = false;
             isPendingorders = false;
             isCancelledorders = false;
             isOutforDelivery = false;
@@ -779,6 +805,7 @@ class _HomeScreenState extends State<HomeScreen> {
         onProductFeedbackTap: () {
           setState(() {
             isDashbord = false;
+            isaddProduct = false;
             isCountry = false;
             isRegisteredCustomer = false;
             isBackupdata = false;
@@ -834,6 +861,7 @@ class _HomeScreenState extends State<HomeScreen> {
             isaddBrand = false;
             isPoster4 = false;
             isPoster5 = false;
+            isaddProduct = false;
             isPoster6 = false;
             isPoster7 = false;
             isProductfeedback = false;
@@ -859,6 +887,7 @@ class _HomeScreenState extends State<HomeScreen> {
             isCancelledorders = false;
             isOutforDelivery = false;
             isaddCategory = false;
+            isaddProduct = false;
             isCompletedOrders = false;
             isDetails = false;
             isLogInfo = false;
@@ -900,6 +929,7 @@ class _HomeScreenState extends State<HomeScreen> {
             isDeals = false;
             isPoster1 = false;
             isPoster2 = false;
+            isaddProduct = false;
             isPoster3 = false;
             isPoster4 = false;
             isPoster5 = false;
@@ -936,6 +966,7 @@ class _HomeScreenState extends State<HomeScreen> {
             isPoster2 = false;
             isPoster3 = false;
             isPoster4 = false;
+            isaddProduct = false;
             isPoster5 = false;
             isPoster6 = false;
             isPoster7 = false;
@@ -981,6 +1012,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         isDeals = false;
                         isPoster1 = false;
                         isPoster2 = false;
+                        isaddProduct = false;
                         isPoster3 = false;
                         isPoster4 = false;
                         isPoster5 = false;
@@ -1012,6 +1044,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         isDeals = false;
                         isPoster1 = false;
                         isPoster2 = false;
+                        isaddProduct = false;
                         isPoster3 = false;
                         isPoster4 = false;
                         isPoster5 = false;
@@ -1047,6 +1080,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       isCategory = false;
                       isProducts = false;
                       isPendingorders = false;
+                      isaddProduct = false;
                       isCancelledorders = false;
                       isOutforDelivery = false;
                       isCompletedOrders = false;
@@ -1081,89 +1115,47 @@ class _HomeScreenState extends State<HomeScreen> {
                         horizontal: isDesktop ? 200 : 15, vertical: 20),
                     child: Column(
                       children: [
-                        isProducts
-                            ? ProductsScreen()
-                            // isCategory
-                            //     ? CategoryScreen(
-                            //         onAddCategoryTap: () {
-                            //           setState(() {
-                            //             isDashbord = false;
-                            //             isCountry = false;
-                            //             isBrands = false;
-                            //             isRegisteredCustomer = false;
-                            //             isBackupdata = false;
-                            //             isCategory = false;
-                            //             isProducts = false;
-                            //             isPendingorders = false;
-                            //             isCancelledorders = false;
-                            //             isOutforDelivery = false;
-                            //             isCompletedOrders = false;
-                            //             isDetails = false;
-                            //             isLogInfo = false;
-                            //             isDeals = false;
-                            //             isPoster1 = false;
-                            //             isPoster2 = false;
-                            //             isPoster3 = false;
-                            //             isPoster4 = false;
-                            //             isaddCategory = true;
-                            //             isPoster5 = false;
-                            //             isPoster6 = false;
-                            //             isPoster7 = false;
-                            //             isaddBrand = false;
-                            //             isProductfeedback = false;
-                            //             isSitefeedback = false;
-                            //             isEnquiry = false;
-                            //             isSubscription = false;
-                            //             //dropdwn flags
-                            //             isChangePassword = false;
-                            //             isViewSite = false;
-                            //           });
+                        isDetails
+                            ? PartnerDetailsPage()
+                            // isCompletedOrders
+                            //     ? CompletedordersPage()
+                            // isCancelledorders
+                            //     ? CancelledorderPage()
+                            // isPendingorders
+                            //     ? PendingordersPage()
+                            // isProducts
+                            //     ? ProductsScreen(
+                            //         onAddProductTap: () {
+                            //           Navigator.push(
+                            //               context,
+                            //               MaterialPageRoute(
+                            //                 builder: (context) => AddProductPage(),
+                            //               ));
                             //         },
                             //       )
-                            //     : isaddCategory
-                            //         ? AddCategoryPage()
-                            // isaddBrand?
-                            // AddBrandPage()
+                            //     : isBrands
+                            //         ? BrandsPage(
+                            //             onAddBrandTap: () {
+                            //               Navigator.push(
+                            //                   context,
+                            //                   MaterialPageRoute(
+                            //                     builder: (context) =>
+                            //                         AddBrandPage(),
+                            //                   ));
+                            //             },
+                            //           )
+                            //         : isCategory
+                            //             ? CategoryScreen(
+                            //                 onAddCategoryTap: () {
+                            //                   Navigator.push(
+                            //                       context,
+                            //                       MaterialPageRoute(
+                            //                         builder: (context) =>
+                            //                             AddCategoryPage(),
+                            //                       ));
+                            //                 },
+                            // )
 
-                            //  isBrands
-                            //     ?
-                            // ChangepasswordScreen()
-                            // BrandsPage(
-                            //     onAddBrandTap: () {
-                            //       setState(() {
-                            //         isaddBrand = true;
-                            //         isDashbord = false;
-                            //         isCountry = false;
-                            //         isBrands = false;
-                            //         isCategory = false;
-                            //         isProducts = false;
-                            //         isPendingorders = false;
-                            //         isCancelledorders = false;
-                            //         isOutforDelivery = false;
-                            //         isCompletedOrders = false;
-                            //         isDetails = false;
-                            //         isLogInfo = false;
-                            //         isDeals = false;
-                            //         isPoster1 = false;
-                            //         isPoster2 = false;
-                            //         isPoster3 = false;
-                            //         isPoster4 = false;
-                            //         isPoster5 = false;
-                            //         isPoster6 = false;
-                            //         isPoster7 = false;
-                            //         isProductfeedback = false;
-                            //         isSitefeedback = false;
-                            //         isEnquiry = false;
-                            //        isRegisteredCustomer = false;
-                            // isBackupdata = false;isaddCategory=false;
-
-                            //         isSubscription = false;
-                            //         //dropdwn flags
-                            //         isChangePassword = false;
-                            //         isViewSite = false;
-                            //       });
-                            //     },
-                            //   )
                             // CountryPage()
                             // DashboardPage()
                             : SizedBox()
