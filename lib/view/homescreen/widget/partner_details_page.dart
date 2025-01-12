@@ -101,7 +101,7 @@ class PartnerDetailsPage extends StatelessWidget {
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: DataTable(
-            dataRowHeight: 200,
+            dataRowHeight: 100,
             columns: const [
               DataColumn(
                   label: Text(

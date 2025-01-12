@@ -1,6 +1,7 @@
 import 'package:admin_app_gomart/view/changepassword_screen/changepassword_screen.dart';
 import 'package:admin_app_gomart/view/homescreen/widget/add_brand_page.dart';
 import 'package:admin_app_gomart/view/homescreen/widget/add_category_page.dart';
+import 'package:admin_app_gomart/view/homescreen/widget/add_deals_page.dart';
 import 'package:admin_app_gomart/view/homescreen/widget/add_product_page.dart';
 import 'package:admin_app_gomart/view/homescreen/widget/brands_page.dart';
 import 'package:admin_app_gomart/view/homescreen/widget/cancelledorder_page.dart';
@@ -9,10 +10,14 @@ import 'package:admin_app_gomart/view/homescreen/widget/completedorders_page.dar
 import 'package:admin_app_gomart/view/homescreen/widget/country_page.dart';
 import 'package:admin_app_gomart/view/homescreen/widget/custom_drawer.dart';
 import 'package:admin_app_gomart/view/homescreen/widget/dashboard_page.dart';
+import 'package:admin_app_gomart/view/homescreen/widget/deals_page.dart';
+import 'package:admin_app_gomart/view/homescreen/widget/details_add_page.dart';
 import 'package:admin_app_gomart/view/homescreen/widget/header_box.dart';
+import 'package:admin_app_gomart/view/homescreen/widget/loginfo_page.dart';
 import 'package:admin_app_gomart/view/homescreen/widget/partner_details_page.dart';
 import 'package:admin_app_gomart/view/homescreen/widget/pendingorders_page.dart';
 import 'package:admin_app_gomart/view/homescreen/widget/products_screen.dart';
+import 'package:admin_app_gomart/view/posters/poster1_page.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -1115,8 +1120,30 @@ class _HomeScreenState extends State<HomeScreen> {
                         horizontal: isDesktop ? 200 : 15, vertical: 20),
                     child: Column(
                       children: [
-                        isDetails
-                            ? PartnerDetailsPage()
+                        isPoster1
+                            ? Poster1Page()
+                            // isDeals
+                            //     ? DealsPage(
+                            //         onAddNewDealTap: () {
+                            //           Navigator.push(
+                            //               context,
+                            //               MaterialPageRoute(
+                            //                 builder: (context) => AddDealsPage(),
+                            //               ));
+                            //         },
+                            //       )
+                            // isLogInfo
+                            //     ? LoginfoPage()
+                            // isDetails
+                            //     ? PartnerDetailsPage(
+                            //         onAddNewTap: () {
+                            //           Navigator.push(
+                            //               context,
+                            //               MaterialPageRoute(
+                            //                 builder: (context) => DetailsAddPage(),
+                            //               ));
+                            //         },
+                            //       )
                             // isCompletedOrders
                             //     ? CompletedordersPage()
                             // isCancelledorders
