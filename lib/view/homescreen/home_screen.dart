@@ -8,16 +8,24 @@ import 'package:admin_app_gomart/view/homescreen/widget/cancelledorder_page.dart
 import 'package:admin_app_gomart/view/homescreen/widget/category_screen.dart';
 import 'package:admin_app_gomart/view/homescreen/widget/completedorders_page.dart';
 import 'package:admin_app_gomart/view/homescreen/widget/country_page.dart';
+import 'package:admin_app_gomart/view/homescreen/widget/creare_email_page.dart';
 import 'package:admin_app_gomart/view/homescreen/widget/custom_drawer.dart';
 import 'package:admin_app_gomart/view/homescreen/widget/dashboard_page.dart';
 import 'package:admin_app_gomart/view/homescreen/widget/deals_page.dart';
 import 'package:admin_app_gomart/view/homescreen/widget/details_add_page.dart';
+import 'package:admin_app_gomart/view/homescreen/widget/enquiries_page.dart';
 import 'package:admin_app_gomart/view/homescreen/widget/header_box.dart';
 import 'package:admin_app_gomart/view/homescreen/widget/loginfo_page.dart';
+import 'package:admin_app_gomart/view/homescreen/widget/outfor_delivery_page.dart';
 import 'package:admin_app_gomart/view/homescreen/widget/partner_details_page.dart';
 import 'package:admin_app_gomart/view/homescreen/widget/pendingorders_page.dart';
+import 'package:admin_app_gomart/view/homescreen/widget/product_feedback_page.dart';
 import 'package:admin_app_gomart/view/homescreen/widget/products_screen.dart';
-import 'package:admin_app_gomart/view/posters/poster1_page.dart';
+import 'package:admin_app_gomart/view/homescreen/widget/registered_customers_page.dart';
+import 'package:admin_app_gomart/view/homescreen/widget/site_feedback_page.dart';
+import 'package:admin_app_gomart/view/homescreen/widget/subscription_page.dart';
+import 'package:admin_app_gomart/view/posters/poster_page.dart';
+import 'package:admin_app_gomart/view/posters/updateposter_page.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -944,7 +952,7 @@ class _HomeScreenState extends State<HomeScreen> {
             isProductfeedback = false;
             isSitefeedback = false;
             isEnquiry = false;
-            isSubscription = true;
+            isSubscription = false;
             //dropdwn flags
             isChangePassword = false;
             isViewSite = false;
@@ -1120,72 +1128,224 @@ class _HomeScreenState extends State<HomeScreen> {
                         horizontal: isDesktop ? 200 : 15, vertical: 20),
                     child: Column(
                       children: [
-                        isPoster1
-                            ? Poster1Page()
-                            // isDeals
-                            //     ? DealsPage(
-                            //         onAddNewDealTap: () {
-                            //           Navigator.push(
-                            //               context,
-                            //               MaterialPageRoute(
-                            //                 builder: (context) => AddDealsPage(),
-                            //               ));
-                            //         },
-                            //       )
-                            // isLogInfo
-                            //     ? LoginfoPage()
-                            // isDetails
-                            //     ? PartnerDetailsPage(
-                            //         onAddNewTap: () {
-                            //           Navigator.push(
-                            //               context,
-                            //               MaterialPageRoute(
-                            //                 builder: (context) => DetailsAddPage(),
-                            //               ));
-                            //         },
-                            //       )
-                            // isCompletedOrders
-                            //     ? CompletedordersPage()
-                            // isCancelledorders
-                            //     ? CancelledorderPage()
-                            // isPendingorders
-                            //     ? PendingordersPage()
-                            // isProducts
-                            //     ? ProductsScreen(
-                            //         onAddProductTap: () {
-                            //           Navigator.push(
-                            //               context,
-                            //               MaterialPageRoute(
-                            //                 builder: (context) => AddProductPage(),
-                            //               ));
-                            //         },
-                            //       )
-                            //     : isBrands
-                            //         ? BrandsPage(
-                            //             onAddBrandTap: () {
-                            //               Navigator.push(
-                            //                   context,
-                            //                   MaterialPageRoute(
-                            //                     builder: (context) =>
-                            //                         AddBrandPage(),
-                            //                   ));
-                            //             },
-                            //           )
-                            //         : isCategory
-                            //             ? CategoryScreen(
-                            //                 onAddCategoryTap: () {
-                            //                   Navigator.push(
-                            //                       context,
-                            //                       MaterialPageRoute(
-                            //                         builder: (context) =>
-                            //                             AddCategoryPage(),
-                            //                       ));
-                            //                 },
-                            // )
-
-                            // CountryPage()
-                            // DashboardPage()
-                            : SizedBox()
+                        isOutforDelivery
+                            ? OutforDeliveryPage()
+                            : isChangePassword
+                                ? ChangepasswordScreen()
+                                : isRegisteredCustomer
+                                    ? RegisteredCustomersPage()
+                                    : isSubscription
+                                        ? SubscriptionPage(
+                                            onCreateEmailTap: () {
+                                              Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        CreareEmailPage(),
+                                                  ));
+                                            },
+                                          )
+                                        : isEnquiry
+                                            ? EnquiriesPage()
+                                            : isProductfeedback
+                                                ? ProductFeedbackPage()
+                                                : isSitefeedback
+                                                    ? SiteFeedbackPage()
+                                                    : isPoster1
+                                                        ? PosterPage(
+                                                            posterNumbr:
+                                                                "Poster 1",
+                                                            onDeleteTap: () {
+                                                              //deletion
+                                                            },
+                                                            onUpdateTap: () {
+                                                              Navigator.push(
+                                                                  context,
+                                                                  MaterialPageRoute(
+                                                                    builder:
+                                                                        (context) =>
+                                                                            UpdateposterPage(
+                                                                      posterNumbr:
+                                                                          "Poster 1",
+                                                                    ),
+                                                                  ));
+                                                            },
+                                                          )
+                                                        : isPoster2
+                                                            ? PosterPage(
+                                                                posterNumbr:
+                                                                    "Poster 2",
+                                                                onDeleteTap:
+                                                                    () {
+                                                                  //deletion
+                                                                },
+                                                                onUpdateTap:
+                                                                    () {
+                                                                  Navigator.push(
+                                                                      context,
+                                                                      MaterialPageRoute(
+                                                                        builder:
+                                                                            (context) =>
+                                                                                UpdateposterPage(
+                                                                          posterNumbr:
+                                                                              "Poster 2",
+                                                                        ),
+                                                                      ));
+                                                                },
+                                                              )
+                                                            : isPoster3
+                                                                ? PosterPage(
+                                                                    posterNumbr:
+                                                                        "Poster 3",
+                                                                    onDeleteTap:
+                                                                        () {
+                                                                      //deletion
+                                                                    },
+                                                                    onUpdateTap:
+                                                                        () {
+                                                                      Navigator.push(
+                                                                          context,
+                                                                          MaterialPageRoute(
+                                                                            builder: (context) =>
+                                                                                UpdateposterPage(
+                                                                              posterNumbr: "Poster 3",
+                                                                            ),
+                                                                          ));
+                                                                    },
+                                                                  )
+                                                                : isPoster4
+                                                                    ? PosterPage(
+                                                                        posterNumbr:
+                                                                            "Poster 4",
+                                                                        onDeleteTap:
+                                                                            () {
+                                                                          //deletion
+                                                                        },
+                                                                        onUpdateTap:
+                                                                            () {
+                                                                          Navigator.push(
+                                                                              context,
+                                                                              MaterialPageRoute(
+                                                                                builder: (context) => UpdateposterPage(
+                                                                                  posterNumbr: "Poster 4",
+                                                                                ),
+                                                                              ));
+                                                                        },
+                                                                      )
+                                                                    : isPoster5
+                                                                        ? PosterPage(
+                                                                            posterNumbr:
+                                                                                "Poster 5",
+                                                                            onDeleteTap:
+                                                                                () {
+                                                                              //deletion
+                                                                            },
+                                                                            onUpdateTap:
+                                                                                () {
+                                                                              Navigator.push(
+                                                                                  context,
+                                                                                  MaterialPageRoute(
+                                                                                    builder: (context) => UpdateposterPage(
+                                                                                      posterNumbr: "Poster 5",
+                                                                                    ),
+                                                                                  ));
+                                                                            },
+                                                                          )
+                                                                        : isPoster6
+                                                                            ? PosterPage(
+                                                                                posterNumbr: "Poster 6",
+                                                                                onDeleteTap: () {
+                                                                                  //deletion
+                                                                                },
+                                                                                onUpdateTap: () {
+                                                                                  Navigator.push(
+                                                                                      context,
+                                                                                      MaterialPageRoute(
+                                                                                        builder: (context) => UpdateposterPage(
+                                                                                          posterNumbr: "Poster 6",
+                                                                                        ),
+                                                                                      ));
+                                                                                },
+                                                                              )
+                                                                            : isPoster7
+                                                                                ? PosterPage(
+                                                                                    posterNumbr: "Poster 7",
+                                                                                    onDeleteTap: () {
+                                                                                      //deletion
+                                                                                    },
+                                                                                    onUpdateTap: () {
+                                                                                      Navigator.push(
+                                                                                          context,
+                                                                                          MaterialPageRoute(
+                                                                                            builder: (context) => UpdateposterPage(
+                                                                                              posterNumbr: "Poster 7",
+                                                                                            ),
+                                                                                          ));
+                                                                                    },
+                                                                                  )
+                                                                                : isDeals
+                                                                                    ? DealsPage(
+                                                                                        onAddNewDealTap: () {
+                                                                                          Navigator.push(
+                                                                                              context,
+                                                                                              MaterialPageRoute(
+                                                                                                builder: (context) => AddDealsPage(),
+                                                                                              ));
+                                                                                        },
+                                                                                      )
+                                                                                    : isLogInfo
+                                                                                        ? LoginfoPage()
+                                                                                        : isDetails
+                                                                                            ? PartnerDetailsPage(
+                                                                                                onAddNewTap: () {
+                                                                                                  Navigator.push(
+                                                                                                      context,
+                                                                                                      MaterialPageRoute(
+                                                                                                        builder: (context) => DetailsAddPage(),
+                                                                                                      ));
+                                                                                                },
+                                                                                              )
+                                                                                            : isCompletedOrders
+                                                                                                ? CompletedordersPage()
+                                                                                                : isCancelledorders
+                                                                                                    ? CancelledorderPage()
+                                                                                                    : isPendingorders
+                                                                                                        ? PendingordersPage()
+                                                                                                        : isProducts
+                                                                                                            ? ProductsScreen(
+                                                                                                                onAddProductTap: () {
+                                                                                                                  Navigator.push(
+                                                                                                                      context,
+                                                                                                                      MaterialPageRoute(
+                                                                                                                        builder: (context) => AddProductPage(),
+                                                                                                                      ));
+                                                                                                                },
+                                                                                                              )
+                                                                                                            : isBrands
+                                                                                                                ? BrandsPage(
+                                                                                                                    onAddBrandTap: () {
+                                                                                                                      Navigator.push(
+                                                                                                                          context,
+                                                                                                                          MaterialPageRoute(
+                                                                                                                            builder: (context) => AddBrandPage(),
+                                                                                                                          ));
+                                                                                                                    },
+                                                                                                                  )
+                                                                                                                : isCategory
+                                                                                                                    ? CategoryScreen(
+                                                                                                                        onAddCategoryTap: () {
+                                                                                                                          Navigator.push(
+                                                                                                                              context,
+                                                                                                                              MaterialPageRoute(
+                                                                                                                                builder: (context) => AddCategoryPage(),
+                                                                                                                              ));
+                                                                                                                        },
+                                                                                                                      )
+                                                                                                                    : isCountry
+                                                                                                                        ? CountryPage()
+                                                                                                                        : isDashbord
+                                                                                                                            ? DashboardPage()
+                                                                                                                            : SizedBox()
                       ],
                     ),
                   ),

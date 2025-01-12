@@ -1,77 +1,36 @@
 import 'package:flutter/material.dart';
 
-class DashboardPage extends StatelessWidget {
-  const DashboardPage({
-    super.key,
-  });
+class RegisteredCustomersPage extends StatelessWidget {
+  const RegisteredCustomersPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final List<Map> customers = [
+    // Use MediaQuery to get screen width and height
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
+
+    // Determine screen type based on width
+    bool isMobile = screenWidth < 600;
+    bool isTablet = screenWidth >= 600 && screenWidth <= 1024;
+    bool isDesktop = screenWidth > 1024;
+
+    final List brands = [
       {
-        'Name': 'Vineetha',
         '#': '1',
-        'Email': 'vineetha44@gmail.com',
-        'Mobile': '7845169545',
-        'Image': 'No image Uploaded',
-        'Action': ''
+        'name': 'daniel',
+        'email': 'daniel@123',
+        'mobile': '4578154578',
+        'action': '',
+        'image': 'no image'
       },
       {
-        'Name': 'Ramesh',
         '#': '2',
-        'Email': 'ramesh89@gmail.com',
-        'Mobile': '9876543210',
-        'Image': 'No image Uploaded',
-        'Action': ''
+        'name': 'dany',
+        'email': 'daniel@123',
+        'mobile': '5487451246',
+        'action': '',
+        'image': 'no image'
       },
-      {
-        'Name': 'Priya',
-        '#': '3',
-        'Email': 'priya77@gmail.com',
-        'Mobile': '8123456789',
-        'Image': 'No image Uploaded',
-        'Action': ''
-      },
-      {
-        'Name': 'Arjun',
-        '#': '4',
-        'Email': 'arjun123@gmail.com',
-        'Mobile': '9001234567',
-        'Image': 'No image Uploaded',
-        'Action': ''
-      },
-      {
-        'Name': 'Meera',
-        '#': '5',
-        'Email': 'meera22@gmail.com',
-        'Mobile': '9870123456',
-        'Image': 'No image Uploaded',
-        'Action': ''
-      },
-      {
-        'Name': 'Rajesh',
-        '#': '6',
-        'Email': 'rajesh_kumar@gmail.com',
-        'Mobile': '8098765432',
-        'Image': 'No image Uploaded',
-        'Action': ''
-      },
-      {
-        'Name': 'Sneha',
-        '#': '7',
-        'Email': 'sneha88@gmail.com',
-        'Mobile': '7012345678',
-        'Image': 'No image Uploaded',
-        'Action': ''
-      },
-      {
-        'Name': 'Kiran',
-        '#': '8',
-        'Email': 'kiran45@gmail.com',
-        'Mobile': '7894561230',
-        'Image': 'No image Uploaded',
-        'Action': ''
-      }
     ];
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -90,6 +49,7 @@ class DashboardPage extends StatelessWidget {
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: DataTable(
+            // dataRowHeight: 200,
             columns: const [
               DataColumn(
                   label: Text(
@@ -105,7 +65,7 @@ class DashboardPage extends StatelessWidget {
                 style: TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.w900,
-                    fontSize: 16),
+                    fontSize: 18),
               )),
               DataColumn(
                   label: Text(
@@ -141,41 +101,41 @@ class DashboardPage extends StatelessWidget {
               )),
             ],
             rows: List.generate(
-              customers.length,
+              brands.length,
               (index) {
-                final customer = customers[index];
+                final brand = brands[index];
                 return DataRow(
                   cells: [
                     DataCell(Text(
-                      customer['#']!,
+                      brand['#']!,
                       style: TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.w600,
                           fontSize: 14),
                     )),
                     DataCell(Text(
-                      customer['Name']!,
+                      brand['name']!,
                       style: TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.w600,
                           fontSize: 14),
                     )),
                     DataCell(Text(
-                      customer['Email']!,
+                      brand['email']!,
                       style: TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.w600,
                           fontSize: 14),
                     )),
                     DataCell(Text(
-                      customer['Mobile']!,
+                      brand['mobile']!,
                       style: TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.w600,
                           fontSize: 14),
                     )),
                     DataCell(Text(
-                      customer['Image']!,
+                      brand['image']!,
                       style: TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.w600,
@@ -188,7 +148,7 @@ class DashboardPage extends StatelessWidget {
                       ),
                       onSelected: (value) {
                         if (value == 1) {
-                          //delete customer
+                          //block
                         }
                       }, //dropdown selection press
                       itemBuilder: (context) => [

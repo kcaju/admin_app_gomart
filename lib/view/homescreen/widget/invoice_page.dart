@@ -32,388 +32,107 @@ class InvoicePage extends StatelessWidget {
         'amount': '4.92'
       },
     ];
-    return Scaffold(
-      body: Padding(
-        padding: EdgeInsets.symmetric(
-          horizontal: isDesktop ? 150 : 10,
-        ),
-        child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 12, vertical: 15),
-          decoration: BoxDecoration(
-              color: Colors.white,
-              border: Border.all(color: Colors.grey.shade200)),
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                //title
-                isMobile
-                    ? Column(
-                        children: [
-                          //logo
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    "Go",
-                                    style: TextStyle(
-                                        color: Colors.orange,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 50),
-                                  ),
-                                  Text(
-                                    "mart",
-                                    style: TextStyle(
-                                        color: Colors.green,
-                                        fontWeight: FontWeight.normal,
-                                        fontSize: 50),
-                                  ),
-                                ],
-                              ),
-                              Text(
-                                "LetterKenny ,Co.Donegal, Ireland",
-                                style: TextStyle(
-                                    color: Colors.grey.shade800,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 20),
-                              ),
-                            ],
-                          ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          //title
-                          Row(
-                            children: [
-                              Text(
-                                "Invoice",
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 25),
-                              ),
-                              SizedBox(
-                                width: 10,
-                              ),
-                              Container(
-                                height: 25,
-                                width: 150,
-                                child: Center(
-                                    child: Text(
-                                  "Placed Order",
+    return SafeArea(
+      child: Scaffold(
+        body: Padding(
+          padding: EdgeInsets.symmetric(
+            horizontal: isDesktop ? 150 : 10,
+          ),
+          child: Container(
+            padding: EdgeInsets.symmetric(horizontal: 12, vertical: 15),
+            decoration: BoxDecoration(
+                color: Colors.white,
+                border: Border.all(color: Colors.grey.shade200)),
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  //title
+                  isMobile
+                      ? Column(
+                          children: [
+                            //logo
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      "Go",
+                                      style: TextStyle(
+                                          color: Colors.orange,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 50),
+                                    ),
+                                    Text(
+                                      "mart",
+                                      style: TextStyle(
+                                          color: Colors.green,
+                                          fontWeight: FontWeight.normal,
+                                          fontSize: 50),
+                                    ),
+                                  ],
+                                ),
+                                Text(
+                                  "LetterKenny ,Co.Donegal, Ireland",
                                   style: TextStyle(
-                                      color: Colors.grey,
+                                      color: Colors.grey.shade800,
                                       fontWeight: FontWeight.bold,
-                                      fontSize: 15),
-                                )),
-                                decoration: BoxDecoration(
-                                    color: Colors.green,
-                                    borderRadius: BorderRadius.circular(20)),
-                              )
-                            ],
-                          ),
-                          //details
-                          //numbr
-                          Row(
-                            children: [
-                              Text(
-                                "Invoice No",
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 18),
-                              ),
-                              SizedBox(
-                                width: 11,
-                              ),
-                              Text(
-                                "#937673",
-                                style: TextStyle(
-                                    color: Colors.grey.shade700,
-                                    fontWeight: FontWeight.normal,
-                                    fontSize: 18),
-                              ),
-                            ],
-                          ),
-                          SizedBox(
-                            height: 5,
-                          ),
-                          //id
-                          Row(
-                            children: [
-                              Text(
-                                "Order ID",
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 18),
-                              ),
-                              SizedBox(
-                                width: 30,
-                              ),
-                              Text(
-                                "#937673",
-                                style: TextStyle(
-                                    color: Colors.grey.shade700,
-                                    fontWeight: FontWeight.normal,
-                                    fontSize: 18),
-                              ),
-                            ],
-                          ),
-                          SizedBox(
-                            height: 5,
-                          ),
-                          //date
-                          Row(
-                            children: [
-                              Text(
-                                "Date",
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 18),
-                              ),
-                              SizedBox(
-                                width: 55,
-                              ),
-                              Text(
-                                "Jan .1, 2025",
-                                style: TextStyle(
-                                    color: Colors.grey.shade700,
-                                    fontWeight: FontWeight.normal,
-                                    fontSize: 18),
-                              ),
-                            ],
-                          )
-                        ],
-                      )
-                    //other devices
-                    : Column(
-                        children: [
-                          Row(
-                            children: [
-                              Text(
-                                "Invoice",
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 25),
-                              ),
-                              SizedBox(
-                                width: 10,
-                              ),
-                              Container(
-                                height: 25,
-                                width: 150,
-                                child: Center(
-                                    child: Text(
-                                  "Placed Order",
-                                  style: TextStyle(
-                                      color: Colors.grey,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 15),
-                                )),
-                                decoration: BoxDecoration(
-                                    color: Colors.green,
-                                    borderRadius: BorderRadius.circular(20)),
-                              )
-                            ],
-                          ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          //details
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  //numbr
-                                  Row(
-                                    children: [
-                                      Text(
-                                        "Invoice No",
-                                        style: TextStyle(
-                                            color: Colors.black,
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 18),
-                                      ),
-                                      SizedBox(
-                                        width: 11,
-                                      ),
-                                      Text(
-                                        "#937673",
-                                        style: TextStyle(
-                                            color: Colors.grey.shade700,
-                                            fontWeight: FontWeight.normal,
-                                            fontSize: 18),
-                                      ),
-                                    ],
-                                  ),
-                                  SizedBox(
-                                    height: 5,
-                                  ),
-                                  //id
-                                  Row(
-                                    children: [
-                                      Text(
-                                        "Order ID",
-                                        style: TextStyle(
-                                            color: Colors.black,
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 18),
-                                      ),
-                                      SizedBox(
-                                        width: 30,
-                                      ),
-                                      Text(
-                                        "#937673",
-                                        style: TextStyle(
-                                            color: Colors.grey.shade700,
-                                            fontWeight: FontWeight.normal,
-                                            fontSize: 18),
-                                      ),
-                                    ],
-                                  ),
-                                  SizedBox(
-                                    height: 5,
-                                  ),
-                                  //date
-                                  Row(
-                                    children: [
-                                      Text(
-                                        "Date",
-                                        style: TextStyle(
-                                            color: Colors.black,
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 18),
-                                      ),
-                                      SizedBox(
-                                        width: 55,
-                                      ),
-                                      Text(
-                                        "Jan .1, 2025",
-                                        style: TextStyle(
-                                            color: Colors.grey.shade700,
-                                            fontWeight: FontWeight.normal,
-                                            fontSize: 18),
-                                      ),
-                                    ],
-                                  )
-                                ],
-                              ),
-                              //gomart logo
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.end,
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  Row(
-                                    children: [
-                                      Text(
-                                        "Go",
-                                        style: TextStyle(
-                                            color: Colors.orange,
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 50),
-                                      ),
-                                      Text(
-                                        "mart",
-                                        style: TextStyle(
-                                            color: Colors.green,
-                                            fontWeight: FontWeight.normal,
-                                            fontSize: 50),
-                                      ),
-                                    ],
-                                  ),
-                                  Text(
-                                    "LetterKenny ,Co.Donegal, Ireland",
-                                    style: TextStyle(
-                                        color: Colors.grey.shade800,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 20),
-                                  ),
-                                ],
-                              )
-                            ],
-                          ),
-                        ],
-                      ),
-                Divider(),
-                SizedBox(
-                  height: 20,
-                ),
-                //address
-                isMobile
-                    ? Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Here are your order details.We thank you for your purchase.",
-                            style: TextStyle(
-                                color: Colors.grey.shade700,
-                                fontWeight: FontWeight.normal,
-                                fontSize: 18),
-                          ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Text(
-                            "Shipping Address",
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 18),
-                          ),
-                          SizedBox(
-                            height: 15,
-                          ),
-                          Text(
-                            "Gokulam Nivas Valiyannur North varam PO,Kerala",
-                            style: TextStyle(
-                                color: Colors.grey.shade700,
-                                fontWeight: FontWeight.normal,
-                                fontSize: 18),
-                          ),
-                        ],
-                      )
-                    :
-                    //other devices
-                    Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Expanded(
-                            child: Text(
-                              "Here are your order details.We thank you for your purchase.",
-                              style: TextStyle(
-                                  color: Colors.grey.shade700,
-                                  fontWeight: FontWeight.normal,
-                                  fontSize: 18),
+                                      fontSize: 20),
+                                ),
+                              ],
                             ),
-                          ),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
+                            SizedBox(
+                              height: 10,
+                            ),
+                            //title
+                            Row(
                               children: [
                                 Text(
-                                  "Shipping Address",
+                                  "Invoice",
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 25),
+                                ),
+                                SizedBox(
+                                  width: 10,
+                                ),
+                                Container(
+                                  height: 25,
+                                  width: 150,
+                                  child: Center(
+                                      child: Text(
+                                    "Placed Order",
+                                    style: TextStyle(
+                                        color: Colors.grey,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 15),
+                                  )),
+                                  decoration: BoxDecoration(
+                                      color: Colors.green,
+                                      borderRadius: BorderRadius.circular(20)),
+                                )
+                              ],
+                            ),
+                            //details
+                            //numbr
+                            Row(
+                              children: [
+                                Text(
+                                  "Invoice No",
                                   style: TextStyle(
                                       color: Colors.black,
                                       fontWeight: FontWeight.bold,
                                       fontSize: 18),
                                 ),
                                 SizedBox(
-                                  height: 15,
+                                  width: 11,
                                 ),
                                 Text(
-                                  "Gokulam Nivas Valiyannur North varam PO,Kerala",
+                                  "#937673",
                                   style: TextStyle(
                                       color: Colors.grey.shade700,
                                       fontWeight: FontWeight.normal,
@@ -421,124 +140,407 @@ class InvoicePage extends StatelessWidget {
                                 ),
                               ],
                             ),
-                          )
-                        ],
-                      ),
-                SizedBox(
-                  height: 15,
-                ),
-                //table
-                SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: DataTable(
-                    dataRowHeight: 80,
-                    columns: const [
-                      DataColumn(
-                          label: Text(
-                        'SR',
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.w900,
-                            fontSize: 18),
-                      )),
-                      DataColumn(
-                          label: Text(
-                        'Products',
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.w900,
-                            fontSize: 18),
-                      )),
-                      DataColumn(
-                          label: Text(
-                        'QTY',
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.w900,
-                            fontSize: 16),
-                      )),
-                      DataColumn(
-                          label: Text(
-                        'Item Price',
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.w900,
-                            fontSize: 16),
-                      )),
-                      DataColumn(
-                          label: Text(
-                        'Amount',
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.w900,
-                            fontSize: 16),
-                      )),
-                    ],
-                    rows: List.generate(
-                      purchase.length,
-                      (index) {
-                        final brand = purchase[index];
-                        return DataRow(
-                          cells: [
-                            DataCell(Text(
-                              brand['sr']!,
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 14),
-                            )),
-                            DataCell(Row(
+                            SizedBox(
+                              height: 5,
+                            ),
+                            //id
+                            Row(
                               children: [
-                                CircleAvatar(
-                                  backgroundColor: Colors.grey.shade300,
-                                  radius: 20,
-                                  child: Image.asset(
-                                    brand['image']!,
-                                    height: 20,
-                                  ),
-                                ),
-                                SizedBox(
-                                  width: 8,
-                                ),
                                 Text(
-                                  brand['product']!,
+                                  "Order ID",
                                   style: TextStyle(
                                       color: Colors.black,
-                                      fontWeight: FontWeight.w600,
-                                      fontSize: 14),
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 18),
+                                ),
+                                SizedBox(
+                                  width: 30,
+                                ),
+                                Text(
+                                  "#937673",
+                                  style: TextStyle(
+                                      color: Colors.grey.shade700,
+                                      fontWeight: FontWeight.normal,
+                                      fontSize: 18),
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            //date
+                            Row(
+                              children: [
+                                Text(
+                                  "Date",
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 18),
+                                ),
+                                SizedBox(
+                                  width: 55,
+                                ),
+                                Text(
+                                  "Jan .1, 2025",
+                                  style: TextStyle(
+                                      color: Colors.grey.shade700,
+                                      fontWeight: FontWeight.normal,
+                                      fontSize: 18),
+                                ),
+                              ],
+                            )
+                          ],
+                        )
+                      //other devices
+                      : Column(
+                          children: [
+                            Row(
+                              children: [
+                                Text(
+                                  "Invoice",
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 25),
+                                ),
+                                SizedBox(
+                                  width: 10,
+                                ),
+                                Container(
+                                  height: 25,
+                                  width: 150,
+                                  child: Center(
+                                      child: Text(
+                                    "Placed Order",
+                                    style: TextStyle(
+                                        color: Colors.grey,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 15),
+                                  )),
+                                  decoration: BoxDecoration(
+                                      color: Colors.green,
+                                      borderRadius: BorderRadius.circular(20)),
                                 )
                               ],
-                            )),
-                            DataCell(Text(
-                              brand['qty']!,
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 14),
-                            )),
-                            DataCell(Text(
-                              brand['price']!,
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 14),
-                            )),
-                            DataCell(Text(
-                              brand['amount']!,
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 14),
-                            )),
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            //details
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    //numbr
+                                    Row(
+                                      children: [
+                                        Text(
+                                          "Invoice No",
+                                          style: TextStyle(
+                                              color: Colors.black,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 18),
+                                        ),
+                                        SizedBox(
+                                          width: 11,
+                                        ),
+                                        Text(
+                                          "#937673",
+                                          style: TextStyle(
+                                              color: Colors.grey.shade700,
+                                              fontWeight: FontWeight.normal,
+                                              fontSize: 18),
+                                        ),
+                                      ],
+                                    ),
+                                    SizedBox(
+                                      height: 5,
+                                    ),
+                                    //id
+                                    Row(
+                                      children: [
+                                        Text(
+                                          "Order ID",
+                                          style: TextStyle(
+                                              color: Colors.black,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 18),
+                                        ),
+                                        SizedBox(
+                                          width: 30,
+                                        ),
+                                        Text(
+                                          "#937673",
+                                          style: TextStyle(
+                                              color: Colors.grey.shade700,
+                                              fontWeight: FontWeight.normal,
+                                              fontSize: 18),
+                                        ),
+                                      ],
+                                    ),
+                                    SizedBox(
+                                      height: 5,
+                                    ),
+                                    //date
+                                    Row(
+                                      children: [
+                                        Text(
+                                          "Date",
+                                          style: TextStyle(
+                                              color: Colors.black,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 18),
+                                        ),
+                                        SizedBox(
+                                          width: 55,
+                                        ),
+                                        Text(
+                                          "Jan .1, 2025",
+                                          style: TextStyle(
+                                              color: Colors.grey.shade700,
+                                              fontWeight: FontWeight.normal,
+                                              fontSize: 18),
+                                        ),
+                                      ],
+                                    )
+                                  ],
+                                ),
+                                //gomart logo
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Text(
+                                          "Go",
+                                          style: TextStyle(
+                                              color: Colors.orange,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 50),
+                                        ),
+                                        Text(
+                                          "mart",
+                                          style: TextStyle(
+                                              color: Colors.green,
+                                              fontWeight: FontWeight.normal,
+                                              fontSize: 50),
+                                        ),
+                                      ],
+                                    ),
+                                    Text(
+                                      "LetterKenny ,Co.Donegal, Ireland",
+                                      style: TextStyle(
+                                          color: Colors.grey.shade800,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 20),
+                                    ),
+                                  ],
+                                )
+                              ],
+                            ),
                           ],
-                        );
-                      },
+                        ),
+                  Divider(),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  //address
+                  isMobile
+                      ? Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Here are your order details.We thank you for your purchase.",
+                              style: TextStyle(
+                                  color: Colors.grey.shade700,
+                                  fontWeight: FontWeight.normal,
+                                  fontSize: 18),
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Text(
+                              "Shipping Address",
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18),
+                            ),
+                            SizedBox(
+                              height: 15,
+                            ),
+                            Text(
+                              "Gokulam Nivas Valiyannur North varam PO,Kerala",
+                              style: TextStyle(
+                                  color: Colors.grey.shade700,
+                                  fontWeight: FontWeight.normal,
+                                  fontSize: 18),
+                            ),
+                          ],
+                        )
+                      :
+                      //other devices
+                      Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Expanded(
+                              child: Text(
+                                "Here are your order details.We thank you for your purchase.",
+                                style: TextStyle(
+                                    color: Colors.grey.shade700,
+                                    fontWeight: FontWeight.normal,
+                                    fontSize: 18),
+                              ),
+                            ),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "Shipping Address",
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 18),
+                                  ),
+                                  SizedBox(
+                                    height: 15,
+                                  ),
+                                  Text(
+                                    "Gokulam Nivas Valiyannur North varam PO,Kerala",
+                                    style: TextStyle(
+                                        color: Colors.grey.shade700,
+                                        fontWeight: FontWeight.normal,
+                                        fontSize: 18),
+                                  ),
+                                ],
+                              ),
+                            )
+                          ],
+                        ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  //table
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: DataTable(
+                      dataRowHeight: 80,
+                      columns: const [
+                        DataColumn(
+                            label: Text(
+                          'SR',
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w900,
+                              fontSize: 18),
+                        )),
+                        DataColumn(
+                            label: Text(
+                          'Products',
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w900,
+                              fontSize: 18),
+                        )),
+                        DataColumn(
+                            label: Text(
+                          'QTY',
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w900,
+                              fontSize: 16),
+                        )),
+                        DataColumn(
+                            label: Text(
+                          'Item Price',
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w900,
+                              fontSize: 16),
+                        )),
+                        DataColumn(
+                            label: Text(
+                          'Amount',
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w900,
+                              fontSize: 16),
+                        )),
+                      ],
+                      rows: List.generate(
+                        purchase.length,
+                        (index) {
+                          final brand = purchase[index];
+                          return DataRow(
+                            cells: [
+                              DataCell(Text(
+                                brand['sr']!,
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 14),
+                              )),
+                              DataCell(Row(
+                                children: [
+                                  CircleAvatar(
+                                    backgroundColor: Colors.grey.shade300,
+                                    radius: 20,
+                                    child: Image.asset(
+                                      brand['image']!,
+                                      height: 20,
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width: 8,
+                                  ),
+                                  Text(
+                                    brand['product']!,
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.w600,
+                                        fontSize: 14),
+                                  )
+                                ],
+                              )),
+                              DataCell(Text(
+                                brand['qty']!,
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 14),
+                              )),
+                              DataCell(Text(
+                                brand['price']!,
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 14),
+                              )),
+                              DataCell(Text(
+                                brand['amount']!,
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 14),
+                              )),
+                            ],
+                          );
+                        },
+                      ),
                     ),
                   ),
-                ),
 
-                //end
-              ],
+                  //end
+                ],
+              ),
             ),
           ),
         ),

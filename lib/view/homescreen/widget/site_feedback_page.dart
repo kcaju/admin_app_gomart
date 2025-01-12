@@ -1,35 +1,10 @@
 import 'package:flutter/material.dart';
 
-class CategoryScreen extends StatelessWidget {
-  const CategoryScreen({super.key, this.onAddCategoryTap});
-  final void Function()? onAddCategoryTap;
+class SiteFeedbackPage extends StatelessWidget {
+  const SiteFeedbackPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final List<Map> category = [
-      {
-        'CategoryName': 'Curry Powders',
-        '#': '1',
-        'Status': '',
-        'Action': '',
-        'Image': 'assets/images/powders.jpg'
-      },
-      {
-        'CategoryName': 'Fruits',
-        '#': '2',
-        'Status': '',
-        'Action': '',
-        'Image': 'assets/images/fruit.jpg'
-      },
-      {
-        'CategoryName': 'Fruit & Vegetables',
-        '#': '3',
-        'Status': '',
-        'Action': '',
-        'Image': 'assets/images/vegetables.jpg'
-      },
-    ];
-
     // Use MediaQuery to get screen width and height
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
@@ -38,49 +13,32 @@ class CategoryScreen extends StatelessWidget {
     bool isMobile = screenWidth < 600;
     bool isTablet = screenWidth >= 600 && screenWidth <= 1024;
     bool isDesktop = screenWidth > 1024;
+
+    final List brands = [
+      {
+        '#': '1',
+        'customer': 'name',
+        'email': 'daniel@123',
+        'comment': 'nil',
+        'action': ''
+      },
+      {
+        '#': '2',
+        'customer': 'name',
+        'email': 'daniel@123',
+        'comment': 'nil',
+        'action': ''
+      },
+    ];
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              "Category",
-              style: TextStyle(
-                  color: Colors.grey.shade800,
-                  fontWeight: FontWeight.w500,
-                  fontSize: 22),
-            ),
-            //button
-            GestureDetector(
-              onTap: onAddCategoryTap,
-              child: Container(
-                padding: EdgeInsets.only(left: 8),
-                height: 40,
-                width: isMobile ? 110 : 130,
-                child: Center(
-                  child: Row(
-                    children: [
-                      Icon(
-                        Icons.add,
-                        color: Colors.white,
-                      ),
-                      Text(
-                        "Add Category",
-                        style: TextStyle(
-                            fontSize: isMobile ? 12 : 15,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  ),
-                ),
-                decoration: BoxDecoration(
-                    color: Colors.green,
-                    borderRadius: BorderRadius.circular(20)),
-              ),
-            )
-          ],
+        Text(
+          "Site Feedback",
+          style: TextStyle(
+              color: Colors.grey.shade800,
+              fontWeight: FontWeight.w500,
+              fontSize: 22),
         ),
         SizedBox(
           height: 15,
@@ -89,7 +47,7 @@ class CategoryScreen extends StatelessWidget {
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: DataTable(
-            dataRowHeight: 200,
+            // dataRowHeight: 200,
             columns: const [
               DataColumn(
                   label: Text(
@@ -101,7 +59,7 @@ class CategoryScreen extends StatelessWidget {
               )),
               DataColumn(
                   label: Text(
-                'Image',
+                'Customer',
                 style: TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.w900,
@@ -109,7 +67,7 @@ class CategoryScreen extends StatelessWidget {
               )),
               DataColumn(
                   label: Text(
-                'Category Name',
+                'Email',
                 style: TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.w900,
@@ -117,7 +75,7 @@ class CategoryScreen extends StatelessWidget {
               )),
               DataColumn(
                   label: Text(
-                'Status',
+                'Comment',
                 style: TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.w900,
@@ -133,9 +91,9 @@ class CategoryScreen extends StatelessWidget {
               )),
             ],
             rows: List.generate(
-              category.length,
+              brands.length,
               (index) {
-                final brand = category[index];
+                final brand = brands[index];
                 return DataRow(
                   cells: [
                     DataCell(Text(
@@ -145,43 +103,27 @@ class CategoryScreen extends StatelessWidget {
                           fontWeight: FontWeight.w600,
                           fontSize: 14),
                     )),
-                    DataCell(Padding(
-                      padding: const EdgeInsets.all(5),
-                      child: Container(
-                        height: 150,
-                        width: 150,
-                        decoration: BoxDecoration(
-                            image: DecorationImage(
-                                fit: BoxFit.fill,
-                                image: AssetImage(brand['Image']!))),
-                      ),
-                    )),
                     DataCell(Text(
-                      brand['CategoryName']!,
+                      brand['customer']!,
                       style: TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.w600,
                           fontSize: 14),
                     )),
-                    DataCell(
-                      Container(
-                        height: 20,
-                        width: isDesktop ? 80 : 110,
-                        padding: EdgeInsets.only(left: isDesktop ? 5 : 0),
-                        child: Center(
-                            child: Text(
-                          'Active',
-                          style: TextStyle(
-                              color: Colors.green.shade700,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 12),
-                        )),
-                        decoration: BoxDecoration(
-                            color: Colors.green.shade200,
-                            border: Border.all(color: Colors.green.shade700),
-                            borderRadius: BorderRadius.circular(8)),
-                      ),
-                    ),
+                    DataCell(Text(
+                      brand['email']!,
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.w600,
+                          fontSize: 14),
+                    )),
+                    DataCell(Text(
+                      brand['comment']!,
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.w600,
+                          fontSize: 14),
+                    )),
                     DataCell(PopupMenuButton<int>(
                       child: Icon(
                         Icons.more_vert,

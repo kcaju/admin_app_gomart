@@ -2,16 +2,16 @@ import 'package:admin_app_gomart/view/homescreen/widget/header_box.dart';
 import 'package:admin_app_gomart/view/widget/customtextformfield.dart';
 import 'package:flutter/material.dart';
 
-class AddCategoryPage extends StatefulWidget {
-  const AddCategoryPage({super.key});
+class CreareEmailPage extends StatefulWidget {
+  const CreareEmailPage({super.key});
 
   @override
-  State<AddCategoryPage> createState() => _AddCategoryPageState();
+  State<CreareEmailPage> createState() => _CreareEmailPageState();
 }
 
-class _AddCategoryPageState extends State<AddCategoryPage> {
-  String _selectedStatus = "Active";
-  TextEditingController categoryName = TextEditingController();
+class _CreareEmailPageState extends State<CreareEmailPage> {
+  TextEditingController subject = TextEditingController();
+  TextEditingController message = TextEditingController();
   final formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
@@ -46,7 +46,7 @@ class _AddCategoryPageState extends State<AddCategoryPage> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              "Add Category",
+                              "Create Email",
                               style: TextStyle(
                                   color: Colors.grey.shade600,
                                   fontWeight: FontWeight.bold,
@@ -56,7 +56,7 @@ class _AddCategoryPageState extends State<AddCategoryPage> {
                               height: 15,
                             ),
                             Text(
-                              "Category Name",
+                              "Subject",
                               style: TextStyle(
                                   color: Colors.grey.shade600,
                                   fontWeight: FontWeight.w600,
@@ -65,92 +65,23 @@ class _AddCategoryPageState extends State<AddCategoryPage> {
                             SizedBox(
                                 width: 450,
                                 child: Customtextformfield(
-                                    hintText: "", controller: categoryName)),
+                                    hintText: "", controller: subject)),
                             SizedBox(
                               height: 10,
                             ),
                             Text(
-                              "Category Image",
+                              "Message",
                               style: TextStyle(
                                   color: Colors.grey.shade600,
                                   fontWeight: FontWeight.w600,
                                   fontSize: 15),
                             ),
                             SizedBox(
-                              height: 5,
-                            ),
-                            //choose file
-
-                            Container(
-                              padding: EdgeInsets.only(left: 12),
-                              height: 45,
-                              width: 450,
-                              child: Row(
-                                children: [
-                                  Container(
-                                    height: 20,
-                                    width: 80,
-                                    color: Colors.grey.shade400,
-                                    child: Text("Choose File"),
-                                  ),
-                                  SizedBox(
-                                    width: 5,
-                                  ),
-                                  Text("No file chosen")
-                                ],
-                              ),
-                              decoration: BoxDecoration(
-                                border: Border.all(color: Colors.grey),
-                                color: Colors.white,
-                              ),
-                            ),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            Text(
-                              "Category Status",
-                              style: TextStyle(
-                                  color: Colors.grey.shade600,
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 15),
-                            ),
-                            SizedBox(height: 8),
-                            Row(
-                              children: [
-                                Row(
-                                  children: [
-                                    Radio<String>(
-                                      activeColor: Colors.grey.shade600,
-                                      value: "Active",
-                                      groupValue: _selectedStatus,
-                                      onChanged: (value) {
-                                        setState(() {
-                                          _selectedStatus = value!;
-                                        });
-                                      },
-                                    ),
-                                    Text('Active'),
-                                  ],
-                                ),
-                                SizedBox(width: 16),
-                                Row(
-                                  children: [
-                                    Radio<String>(
-                                      activeColor: Colors.grey.shade600,
-                                      value: "Inactive",
-                                      groupValue: _selectedStatus,
-                                      onChanged: (value) {
-                                        setState(() {
-                                          _selectedStatus = value!;
-                                        });
-                                      },
-                                    ),
-                                    Text('Inactive'),
-                                  ],
-                                ),
-                              ],
-                            ),
-
+                                width: 450,
+                                child: Customtextformfield(
+                                    isDescription: true,
+                                    hintText: "",
+                                    controller: message)),
                             SizedBox(
                               height: 15,
                             ),
@@ -158,11 +89,12 @@ class _AddCategoryPageState extends State<AddCategoryPage> {
                             GestureDetector(
                               onTap: () {
                                 if (formKey.currentState!.validate()) {
-                                  categoryName.clear();
+                                  subject.clear();
+                                  message.clear();
                                   ScaffoldMessenger.of(context)
                                       .showSnackBar(SnackBar(
                                           content: Text(
-                                    "Category Added Successfully !!!",
+                                    "Email Send Successfully !!!",
                                     style: TextStyle(
                                         color: Colors.white,
                                         fontSize: 35,
@@ -171,11 +103,11 @@ class _AddCategoryPageState extends State<AddCategoryPage> {
                                 }
                               },
                               child: Container(
-                                height: 50,
-                                width: 200,
+                                height: 40,
+                                width: 180,
                                 child: Center(
                                   child: Text(
-                                    "CREATE CATEGORY",
+                                    "SEND EMAIL",
                                     style: TextStyle(
                                         color: Colors.white,
                                         fontWeight: FontWeight.bold,

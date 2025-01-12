@@ -12,22 +12,6 @@ class _ProductsScreenState extends State<ProductsScreen> {
   TextEditingController search = TextEditingController();
 
   int? dropvalue;
-  final ScrollController _scrollController = ScrollController();
-  void scrollRight() {
-    _scrollController.animateTo(
-      _scrollController.offset + 320, // Scroll by 320px (card width + spacing)
-      duration: Duration(milliseconds: 300),
-      curve: Curves.easeInOut,
-    );
-  }
-
-  void scrollLeft() {
-    _scrollController.animateTo(
-      _scrollController.offset - 320, // Scroll by 320px (card width + spacing)
-      duration: Duration(milliseconds: 300),
-      curve: Curves.easeInOut,
-    );
-  }
 
   final List<Map> brands = [
     {
@@ -210,7 +194,6 @@ class _ProductsScreenState extends State<ProductsScreen> {
         ),
         //table
         SingleChildScrollView(
-          controller: _scrollController,
           scrollDirection: Axis.horizontal,
           child: DataTable(
             dataRowHeight: 100,
@@ -510,42 +493,6 @@ class _ProductsScreenState extends State<ProductsScreen> {
             ),
           ),
         ),
-        SizedBox(
-          height: 10,
-        ),
-        //scroll control buttons
-        Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            GestureDetector(
-              onTap: scrollLeft,
-              child: CircleAvatar(
-                radius: 20,
-                backgroundColor: Colors.lightGreen.shade200,
-                child: Icon(
-                  Icons.arrow_back_ios,
-                  size: 16,
-                  color: Colors.black,
-                ),
-              ),
-            ),
-            SizedBox(
-              width: 15,
-            ),
-            GestureDetector(
-              onTap: scrollRight,
-              child: CircleAvatar(
-                radius: 20,
-                backgroundColor: Colors.lightGreen.shade200,
-                child: Icon(
-                  Icons.arrow_forward_ios,
-                  size: 16,
-                  color: Colors.black,
-                ),
-              ),
-            )
-          ],
-        )
       ],
     );
   }

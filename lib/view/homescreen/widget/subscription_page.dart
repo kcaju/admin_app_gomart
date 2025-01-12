@@ -1,32 +1,29 @@
 import 'package:flutter/material.dart';
 
-class CategoryScreen extends StatelessWidget {
-  const CategoryScreen({super.key, this.onAddCategoryTap});
-  final void Function()? onAddCategoryTap;
+class SubscriptionPage extends StatelessWidget {
+  const SubscriptionPage({super.key, this.onCreateEmailTap});
+  final void Function()? onCreateEmailTap;
 
   @override
   Widget build(BuildContext context) {
     final List<Map> category = [
       {
-        'CategoryName': 'Curry Powders',
         '#': '1',
-        'Status': '',
+        'email': 'daniel@gmail.com',
         'Action': '',
-        'Image': 'assets/images/powders.jpg'
+        'created': 'Nov 14, 2024,10:07 a.m.'
       },
       {
-        'CategoryName': 'Fruits',
         '#': '2',
-        'Status': '',
+        'email': 'daniel@gmail.com',
         'Action': '',
-        'Image': 'assets/images/fruit.jpg'
+        'created': 'Nov 14, 2024,10:07 a.m.'
       },
       {
-        'CategoryName': 'Fruit & Vegetables',
         '#': '3',
-        'Status': '',
+        'email': 'daniel@gmail.com',
         'Action': '',
-        'Image': 'assets/images/vegetables.jpg'
+        'created': 'Nov 14, 2024,10:07 a.m.'
       },
     ];
 
@@ -45,7 +42,7 @@ class CategoryScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              "Category",
+              "Subscriptions",
               style: TextStyle(
                   color: Colors.grey.shade800,
                   fontWeight: FontWeight.w500,
@@ -53,7 +50,7 @@ class CategoryScreen extends StatelessWidget {
             ),
             //button
             GestureDetector(
-              onTap: onAddCategoryTap,
+              onTap: onCreateEmailTap,
               child: Container(
                 padding: EdgeInsets.only(left: 8),
                 height: 40,
@@ -66,7 +63,7 @@ class CategoryScreen extends StatelessWidget {
                         color: Colors.white,
                       ),
                       Text(
-                        "Add Category",
+                        "Create Email",
                         style: TextStyle(
                             fontSize: isMobile ? 12 : 15,
                             color: Colors.white,
@@ -89,7 +86,7 @@ class CategoryScreen extends StatelessWidget {
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: DataTable(
-            dataRowHeight: 200,
+            // dataRowHeight: 200,
             columns: const [
               DataColumn(
                   label: Text(
@@ -101,7 +98,7 @@ class CategoryScreen extends StatelessWidget {
               )),
               DataColumn(
                   label: Text(
-                'Image',
+                'Email',
                 style: TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.w900,
@@ -109,15 +106,7 @@ class CategoryScreen extends StatelessWidget {
               )),
               DataColumn(
                   label: Text(
-                'Category Name',
-                style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.w900,
-                    fontSize: 16),
-              )),
-              DataColumn(
-                  label: Text(
-                'Status',
+                'Created At',
                 style: TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.w900,
@@ -145,43 +134,20 @@ class CategoryScreen extends StatelessWidget {
                           fontWeight: FontWeight.w600,
                           fontSize: 14),
                     )),
-                    DataCell(Padding(
-                      padding: const EdgeInsets.all(5),
-                      child: Container(
-                        height: 150,
-                        width: 150,
-                        decoration: BoxDecoration(
-                            image: DecorationImage(
-                                fit: BoxFit.fill,
-                                image: AssetImage(brand['Image']!))),
-                      ),
-                    )),
                     DataCell(Text(
-                      brand['CategoryName']!,
+                      brand['email']!,
                       style: TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.w600,
                           fontSize: 14),
                     )),
-                    DataCell(
-                      Container(
-                        height: 20,
-                        width: isDesktop ? 80 : 110,
-                        padding: EdgeInsets.only(left: isDesktop ? 5 : 0),
-                        child: Center(
-                            child: Text(
-                          'Active',
-                          style: TextStyle(
-                              color: Colors.green.shade700,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 12),
-                        )),
-                        decoration: BoxDecoration(
-                            color: Colors.green.shade200,
-                            border: Border.all(color: Colors.green.shade700),
-                            borderRadius: BorderRadius.circular(8)),
-                      ),
-                    ),
+                    DataCell(Text(
+                      brand['created']!,
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.w600,
+                          fontSize: 14),
+                    )),
                     DataCell(PopupMenuButton<int>(
                       child: Icon(
                         Icons.more_vert,

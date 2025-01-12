@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 
-class Poster1Page extends StatelessWidget {
-  const Poster1Page({super.key, this.onUpdateTap, this.onDeleteTap});
+class PosterPage extends StatelessWidget {
+  const PosterPage(
+      {super.key,
+      this.onUpdateTap,
+      this.onDeleteTap,
+      required this.posterNumbr});
   final void Function()? onUpdateTap;
   final void Function()? onDeleteTap;
+  final String posterNumbr;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +27,7 @@ class Poster1Page extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              "Poster 1",
+              "${posterNumbr}",
               style: TextStyle(
                   color: Colors.grey.shade800,
                   fontWeight: FontWeight.w500,
