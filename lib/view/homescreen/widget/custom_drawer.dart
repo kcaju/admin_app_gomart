@@ -128,44 +128,72 @@ class _CustomDrawerState extends State<CustomDrawer> {
                     height: 5,
                   ),
                   //country
-                  GestureDetector(
-                    onTap: widget.onCountryTap,
-                    child: Text(
-                      "Country",
-                      style: TextStyle(color: Colors.grey),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 50),
+                      child: GestureDetector(
+                        onTap: widget.onCountryTap,
+                        child: Text(
+                          "Country",
+                          style: TextStyle(
+                              color: Colors.grey, fontWeight: FontWeight.bold),
+                        ),
+                      ),
                     ),
                   ),
                   SizedBox(
                     height: 10,
                   ),
                   //brands
-                  GestureDetector(
-                    onTap: widget.onBrandTap,
-                    child: Text(
-                      "Brands",
-                      style: TextStyle(color: Colors.grey),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 50),
+                      child: GestureDetector(
+                        onTap: widget.onBrandTap,
+                        child: Text(
+                          "Brands",
+                          style: TextStyle(
+                              color: Colors.grey, fontWeight: FontWeight.bold),
+                        ),
+                      ),
                     ),
                   ),
                   SizedBox(
                     height: 10,
                   ),
                   //category
-                  GestureDetector(
-                    onTap: widget.onCategroryTap,
-                    child: Text(
-                      "Category",
-                      style: TextStyle(color: Colors.grey),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 50),
+                      child: GestureDetector(
+                        onTap: widget.onCategroryTap,
+                        child: Text(
+                          "Category",
+                          style: TextStyle(
+                              color: Colors.grey, fontWeight: FontWeight.bold),
+                        ),
+                      ),
                     ),
                   ),
                   SizedBox(
                     height: 10,
                   ),
                   //products
-                  GestureDetector(
-                    onTap: widget.onProductsTap,
-                    child: Text(
-                      "Products",
-                      style: TextStyle(color: Colors.grey),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 50),
+                      child: GestureDetector(
+                        onTap: widget.onProductsTap,
+                        child: Text(
+                          "Products",
+                          style: TextStyle(
+                              color: Colors.grey, fontWeight: FontWeight.bold),
+                        ),
+                      ),
                     ),
                   ),
                   SizedBox(
@@ -195,22 +223,36 @@ class _CustomDrawerState extends State<CustomDrawer> {
                     height: 5,
                   ),
                   //pending orders
-                  GestureDetector(
-                    onTap: widget.onPendingorderTap,
-                    child: Text(
-                      "Pending Orders",
-                      style: TextStyle(color: Colors.grey),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 50),
+                      child: GestureDetector(
+                        onTap: widget.onPendingorderTap,
+                        child: Text(
+                          "Pending Orders",
+                          style: TextStyle(
+                              color: Colors.grey, fontWeight: FontWeight.bold),
+                        ),
+                      ),
                     ),
                   ),
                   SizedBox(
                     height: 10,
                   ),
                   //cancelledorders
-                  GestureDetector(
-                    onTap: widget.onCancelledorderTap,
-                    child: Text(
-                      "Cancelled Orders",
-                      style: TextStyle(color: Colors.grey),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 50),
+                      child: GestureDetector(
+                        onTap: widget.onCancelledorderTap,
+                        child: Text(
+                          "Cancelled Orders",
+                          style: TextStyle(
+                              color: Colors.grey, fontWeight: FontWeight.bold),
+                        ),
+                      ),
                     ),
                   ),
 
@@ -241,22 +283,36 @@ class _CustomDrawerState extends State<CustomDrawer> {
                     height: 5,
                   ),
                   //out for
-                  GestureDetector(
-                    onTap: widget.onOutforDeliveryTap,
-                    child: Text(
-                      "Out For Delivery",
-                      style: TextStyle(color: Colors.grey),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 50),
+                      child: GestureDetector(
+                        onTap: widget.onOutforDeliveryTap,
+                        child: Text(
+                          "Out For Delivery",
+                          style: TextStyle(
+                              color: Colors.grey, fontWeight: FontWeight.bold),
+                        ),
+                      ),
                     ),
                   ),
                   SizedBox(
                     height: 10,
                   ),
                   //completed
-                  GestureDetector(
-                    onTap: widget.onCompletedOrdersTap,
-                    child: Text(
-                      "Completed Orders",
-                      style: TextStyle(color: Colors.grey),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 50),
+                      child: GestureDetector(
+                        onTap: widget.onCompletedOrdersTap,
+                        child: Text(
+                          "Completed Orders",
+                          style: TextStyle(
+                              color: Colors.grey, fontWeight: FontWeight.bold),
+                        ),
+                      ),
                     ),
                   ),
                   SizedBox(
@@ -286,22 +342,36 @@ class _CustomDrawerState extends State<CustomDrawer> {
                     height: 5,
                   ),
                   //details
-                  GestureDetector(
-                    onTap: widget.onDetailsTap,
-                    child: Text(
-                      "Details",
-                      style: TextStyle(color: Colors.grey),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 50),
+                      child: GestureDetector(
+                        onTap: widget.onDetailsTap,
+                        child: Text(
+                          "Details",
+                          style: TextStyle(
+                              color: Colors.grey, fontWeight: FontWeight.bold),
+                        ),
+                      ),
                     ),
                   ),
                   SizedBox(
                     height: 10,
                   ),
                   //info
-                  GestureDetector(
-                    onTap: widget.onLoginInfoTap,
-                    child: Text(
-                      "Log in/out info",
-                      style: TextStyle(color: Colors.grey),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 50),
+                      child: GestureDetector(
+                        onTap: widget.onLoginInfoTap,
+                        child: Text(
+                          "Log in/out info",
+                          style: TextStyle(
+                              color: Colors.grey, fontWeight: FontWeight.bold),
+                        ),
+                      ),
                     ),
                   ),
                   SizedBox(
@@ -331,11 +401,18 @@ class _CustomDrawerState extends State<CustomDrawer> {
                     height: 5,
                   ),
                   //deal
-                  GestureDetector(
-                    onTap: widget.onDealsTap,
-                    child: Text(
-                      "Deals",
-                      style: TextStyle(color: Colors.grey),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 50),
+                      child: GestureDetector(
+                        onTap: widget.onDealsTap,
+                        child: Text(
+                          "Deals",
+                          style: TextStyle(
+                              color: Colors.grey, fontWeight: FontWeight.bold),
+                        ),
+                      ),
                     ),
                   ),
                   SizedBox(
@@ -365,77 +442,126 @@ class _CustomDrawerState extends State<CustomDrawer> {
                     height: 5,
                   ),
                   //poster1
-                  GestureDetector(
-                    onTap: widget.onPoster1Tap,
-                    child: Text(
-                      "Poster 1",
-                      style: TextStyle(color: Colors.grey),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 50),
+                      child: GestureDetector(
+                        onTap: widget.onPoster1Tap,
+                        child: Text(
+                          "Poster 1",
+                          style: TextStyle(
+                              color: Colors.grey, fontWeight: FontWeight.bold),
+                        ),
+                      ),
                     ),
                   ),
                   SizedBox(
                     height: 10,
                   ),
                   //2
-                  GestureDetector(
-                    onTap: widget.onPoster2Tap,
-                    child: Text(
-                      "Poster 2",
-                      style: TextStyle(color: Colors.grey),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 50),
+                      child: GestureDetector(
+                        onTap: widget.onPoster2Tap,
+                        child: Text(
+                          "Poster 2",
+                          style: TextStyle(
+                              color: Colors.grey, fontWeight: FontWeight.bold),
+                        ),
+                      ),
                     ),
                   ),
                   SizedBox(
                     height: 10,
                   ),
                   //3
-                  GestureDetector(
-                    onTap: widget.onPoster3Tap,
-                    child: Text(
-                      "Poster 3",
-                      style: TextStyle(color: Colors.grey),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 50),
+                      child: GestureDetector(
+                        onTap: widget.onPoster3Tap,
+                        child: Text(
+                          "Poster 3",
+                          style: TextStyle(
+                              color: Colors.grey, fontWeight: FontWeight.bold),
+                        ),
+                      ),
                     ),
                   ),
                   SizedBox(
                     height: 10,
                   ),
                   //4
-                  GestureDetector(
-                    onTap: widget.onPoster4Tap,
-                    child: Text(
-                      "Poster 4",
-                      style: TextStyle(color: Colors.grey),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 50),
+                      child: GestureDetector(
+                        onTap: widget.onPoster4Tap,
+                        child: Text(
+                          "Poster 4",
+                          style: TextStyle(
+                              color: Colors.grey, fontWeight: FontWeight.bold),
+                        ),
+                      ),
                     ),
                   ),
                   SizedBox(
                     height: 10,
                   ),
                   //5
-                  GestureDetector(
-                    onTap: widget.onPoster5Tap,
-                    child: Text(
-                      "Poster 5",
-                      style: TextStyle(color: Colors.grey),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 50),
+                      child: GestureDetector(
+                        onTap: widget.onPoster5Tap,
+                        child: Text(
+                          "Poster 5",
+                          style: TextStyle(
+                              color: Colors.grey, fontWeight: FontWeight.bold),
+                        ),
+                      ),
                     ),
                   ),
                   SizedBox(
                     height: 10,
                   ),
                   //6
-                  GestureDetector(
-                    onTap: widget.onPoster6Tap,
-                    child: Text(
-                      "Poster 6",
-                      style: TextStyle(color: Colors.grey),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 50),
+                      child: GestureDetector(
+                        onTap: widget.onPoster6Tap,
+                        child: Text(
+                          "Poster 6",
+                          style: TextStyle(
+                              color: Colors.grey, fontWeight: FontWeight.bold),
+                        ),
+                      ),
                     ),
                   ),
                   SizedBox(
                     height: 10,
                   ),
                   //7
-                  GestureDetector(
-                    onTap: widget.onPoster7Tap,
-                    child: Text(
-                      "Poster 7",
-                      style: TextStyle(color: Colors.grey),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 50),
+                      child: GestureDetector(
+                        onTap: widget.onPoster7Tap,
+                        child: Text(
+                          "Poster 7",
+                          style: TextStyle(
+                              color: Colors.grey, fontWeight: FontWeight.bold),
+                        ),
+                      ),
                     ),
                   ),
                   SizedBox(
@@ -465,22 +591,36 @@ class _CustomDrawerState extends State<CustomDrawer> {
                     height: 5,
                   ),
                   //product
-                  GestureDetector(
-                    onTap: widget.onProductFeedbackTap,
-                    child: Text(
-                      "Product Feedback",
-                      style: TextStyle(color: Colors.grey),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 50),
+                      child: GestureDetector(
+                        onTap: widget.onProductFeedbackTap,
+                        child: Text(
+                          "Product Feedback",
+                          style: TextStyle(
+                              color: Colors.grey, fontWeight: FontWeight.bold),
+                        ),
+                      ),
                     ),
                   ),
                   SizedBox(
                     height: 10,
                   ),
                   //site
-                  GestureDetector(
-                    onTap: widget.onSiteFeedbackTap,
-                    child: Text(
-                      "Site Feedback",
-                      style: TextStyle(color: Colors.grey),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 50),
+                      child: GestureDetector(
+                        onTap: widget.onSiteFeedbackTap,
+                        child: Text(
+                          "Site Feedback",
+                          style: TextStyle(
+                              color: Colors.grey, fontWeight: FontWeight.bold),
+                        ),
+                      ),
                     ),
                   ),
                   SizedBox(
