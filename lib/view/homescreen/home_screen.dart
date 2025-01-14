@@ -1,6 +1,7 @@
 import 'package:admin_app_gomart/view/changepassword_screen/changepassword_screen.dart';
 import 'package:admin_app_gomart/view/homescreen/widget/add_brand_page.dart';
 import 'package:admin_app_gomart/view/homescreen/widget/add_category_page.dart';
+import 'package:admin_app_gomart/view/homescreen/widget/add_country_page.dart';
 import 'package:admin_app_gomart/view/homescreen/widget/add_deals_page.dart';
 import 'package:admin_app_gomart/view/homescreen/widget/add_product_page.dart';
 import 'package:admin_app_gomart/view/homescreen/widget/brands_page.dart';
@@ -1342,7 +1343,15 @@ class _HomeScreenState extends State<HomeScreen> {
                                                                                                                         },
                                                                                                                       )
                                                                                                                     : isCountry
-                                                                                                                        ? CountryPage()
+                                                                                                                        ? CountryPage(
+                                                                                                                            onAddCountryTap: () {
+                                                                                                                              Navigator.push(
+                                                                                                                                  context,
+                                                                                                                                  MaterialPageRoute(
+                                                                                                                                    builder: (context) => AddCountryPage(),
+                                                                                                                                  ));
+                                                                                                                            },
+                                                                                                                          )
                                                                                                                         : isDashbord
                                                                                                                             ? DashboardPage()
                                                                                                                             : SizedBox()

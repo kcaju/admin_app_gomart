@@ -1,3 +1,4 @@
+import 'package:admin_app_gomart/view/homescreen/widget/assign_deliveryboy_page.dart';
 import 'package:admin_app_gomart/view/homescreen/widget/invoice_page.dart';
 import 'package:admin_app_gomart/view/homescreen/widget/pendingorder_products.dart';
 import 'package:flutter/material.dart';
@@ -222,22 +223,32 @@ class PendingordersPage extends StatelessWidget {
                     DataCell(
                       Row(
                         children: [
-                          //outfor delivery
-                          Container(
-                            height: 40,
-                            width: isDesktop ? 80 : 110,
-                            padding: EdgeInsets.only(left: isDesktop ? 5 : 0),
-                            child: Center(
-                                child: Text(
-                              brand['Status1'],
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 12),
-                            )),
-                            decoration: BoxDecoration(
-                                color: Colors.green,
-                                borderRadius: BorderRadius.circular(8)),
+                          //outfor delivery button
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) =>
+                                        AssignDeliveryboyPage(),
+                                  ));
+                            },
+                            child: Container(
+                              height: 40,
+                              width: isDesktop ? 80 : 110,
+                              padding: EdgeInsets.only(left: isDesktop ? 5 : 0),
+                              child: Center(
+                                  child: Text(
+                                brand['Status1'],
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 12),
+                              )),
+                              decoration: BoxDecoration(
+                                  color: Colors.green,
+                                  borderRadius: BorderRadius.circular(8)),
+                            ),
                           ),
                           SizedBox(width: 4),
                           //cancel buton

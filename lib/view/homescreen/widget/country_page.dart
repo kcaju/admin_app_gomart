@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class CountryPage extends StatelessWidget {
-  const CountryPage({super.key});
+  const CountryPage({super.key, this.onAddCountryTap});
+  final void Function()? onAddCountryTap;
 
   @override
   Widget build(BuildContext context) {
@@ -31,27 +32,31 @@ class CountryPage extends StatelessWidget {
                   fontWeight: FontWeight.w500,
                   fontSize: 22),
             ),
-            Container(
-              padding: EdgeInsets.only(left: 8),
-              height: 40,
-              width: isMobile ? 120 : 140,
-              child: Center(
-                child: Row(
-                  children: [
-                    Icon(
-                      Icons.add,
-                      color: Colors.white,
-                    ),
-                    Text(
-                      "Add Country",
-                      style: TextStyle(
-                          color: Colors.white, fontWeight: FontWeight.bold),
-                    ),
-                  ],
+            GestureDetector(
+              onTap: onAddCountryTap,
+              child: Container(
+                padding: EdgeInsets.only(left: 8),
+                height: 40,
+                width: isMobile ? 120 : 140,
+                child: Center(
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.add,
+                        color: Colors.white,
+                      ),
+                      Text(
+                        "Add Country",
+                        style: TextStyle(
+                            color: Colors.white, fontWeight: FontWeight.bold),
+                      ),
+                    ],
+                  ),
                 ),
+                decoration: BoxDecoration(
+                    color: Colors.green,
+                    borderRadius: BorderRadius.circular(20)),
               ),
-              decoration: BoxDecoration(
-                  color: Colors.green, borderRadius: BorderRadius.circular(20)),
             )
           ],
         ),
